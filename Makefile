@@ -5,29 +5,30 @@ CFLAGS		= -Wall -Werror -Wextra -g -fsanitize=address
 
 LIBFT		= ./libft/libft.a
 FT_PRINTF	= ./ft_printf/libftprintf.a
+MLX			= ./mlx/libmlx.a
 
 SRCS		= src/main.c \
-			
 
 OBJS		= $(SRCS:.c=.o)
 
 all:		$(NAME)
 
 $(LIBFT):
-	$(MAKE) -C ./libft
-
+		$(MAKE) -C ./libft
 $(FT_PRINTF):
-	$(MAKE) -C ./ft_printf
+		$(MAKE) -C ./ft_printf
+$(MLX):
+		$(MAKE) -C ./mlx
 
-
-$(NAME): 	$(OBJS) $(LIBFT) $(FT_PRINTF)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(FT_PRINTF) -o $(NAME)
+$(NAME): 	$(OBJS) $(LIBFT) $(FT_PRINTF) $(MLX)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(FT_PRINTF) $(MLX) -o $(NAME)
 	@echo "\033[92mDone\033[0m"
 
 clean:
-	rm -f $(OBJS) $(LIBFT) $(FT_PRINTF)
+	rm -f $(OBJS) $(LIBFT) $(FT_PRINTF) $(MLX)
 	$(MAKE) -C libft/ clean
 	$(MAKE) -C ft_printf/ clean
+	$(MAKE) -C mlx/ clean
 	@echo "\033[92mClean\033[0m"
 	
 fclean:		clean

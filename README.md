@@ -1,5 +1,8 @@
 # <h1 align="center"><a href="https://github.com/AtibQur/push_swap/blob/main/so_long_en.pdf" target="_blank">So_long 🎮  🕹️</a></h1>
 
+<h2>Description So_long</h2>
+
+
 <h2>Installation ⚙️</h2>
 *To build the programm there is only a few steps: First of all, you can download the repository through the following steps in any shell of your preference:*
 <br>
