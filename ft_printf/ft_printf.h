@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:52:39 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/14 10:52:40 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:15:03 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_printf(const	char *format, ...);
 int		ft_pf_putchar_fd(char c, int fd);
 int		ft_pf_putnbr_fd(int n, int fd);
 int		ft_pf_putstr_fd(char *str, int fd);
-int		ft_pf_putunbr_fd(int n, int fd);
+int		ft_putunbr_fd(int n, int fd);
 int		ft_pointer(unsigned long n, int up_low);
 int		ft_print_hexadecimal(unsigned long n, int up_low);
 int		ft_putpercentage_fd(char c, int fd);

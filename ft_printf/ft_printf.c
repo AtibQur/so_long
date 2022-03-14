@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:52:33 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/14 10:52:34 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:28:18 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_check_char(va_list arg_list, const char *format)
 	if (*format == 'd' || *format == 'i')
 		return (ft_pf_putnbr_fd(va_arg(arg_list, int), 1));
 	if (*format == 'u')
-		return (ft_pf_putunbr_fd(va_arg(arg_list, unsigned int), 1));
+		return (ft_putunbr_fd(va_arg(arg_list, unsigned int), 1));
 	if (*format == 'x')
 		return (ft_print_hexadecimal(va_arg(arg_list, unsigned int), 'l'));
 	if (*format == 'X')
