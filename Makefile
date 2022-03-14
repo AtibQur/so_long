@@ -2,6 +2,7 @@ NAME		= so_long
 
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra -g -fsanitize=address
+MLXFLAGS	= -framework OpenGL -framework Appkit
 
 LIBFT		= ./libft/libft.a
 FT_PRINTF	= ./ft_printf/libftprintf.a
@@ -21,7 +22,7 @@ $(MLX):
 		$(MAKE) -C ./mlx
 
 $(NAME): 	$(OBJS) $(LIBFT) $(FT_PRINTF) $(MLX)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(FT_PRINTF) $(MLX) -o $(NAME)
+	$(CC) $(CFLAGS) $(MLXFLAGS) $(OBJS) $(LIBFT) $(FT_PRINTF) $(MLX) -o $(NAME)
 	@echo "\033[92mDone\033[0m"
 
 clean:
