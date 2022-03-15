@@ -9,6 +9,9 @@ FT_PRINTF	= ./ft_printf/libftprintf.a
 MLX			= ./mlx/libmlx.a
 
 SRCS		= src/main.c \
+			src/initialize_game.c \
+			src/hook_events.c \
+
 
 OBJS		= $(SRCS:.c=.o)
 
@@ -22,7 +25,7 @@ $(MLX):
 		$(MAKE) -C ./mlx
 
 $(NAME): 	$(OBJS) $(LIBFT) $(FT_PRINTF) $(MLX)
-	$(CC) $(CFLAGS) $(MLXFLAGS) $(OBJS) $(LIBFT) $(FT_PRINTF) $(MLX) -o $(NAME)
+	@$(CC) $(CFLAGS) $(MLXFLAGS) $(OBJS) $(LIBFT) $(FT_PRINTF) $(MLX) -o $(NAME)
 	@echo "\033[92mDone\033[0m"
 
 clean:
@@ -34,8 +37,8 @@ clean:
 	
 fclean:		clean
 	rm -f $(NAME)
-	$(MAKE) -C libft/ clean
-	$(MAKE) -C ft_printf/ clean
+	@$(MAKE) -C libft/ clean
+	@$(MAKE) -C ft_printf/ clean
 	@echo "\033[92mFclean\033[0m"
 
 re:			fclean all

@@ -28,16 +28,16 @@ NAME = libft.a
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
-	ar r $(NAME) $(OBJ_FILES)
+	@ar r $(NAME) $(OBJ_FILES)
 
 bonus:
-	$(MAKE) WITH_BONUS=1
+	@$(MAKE) WITH_BONUS=1
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	@rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

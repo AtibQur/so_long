@@ -13,3 +13,8 @@ make
 </pre>
 These commands will compile everything and a executable <em>"so_long"</em> should be created. 
 <br><br>
+
+
+
+https://harm-smits.github.io/42docs/
+https://eastmanreference.com/complete-list-of-applescript-key-codes
