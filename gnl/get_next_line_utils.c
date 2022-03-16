@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/16 10:52:09 by hqureshi          #+#    #+#             */
+/*   Updated: 2022/03/16 10:52:10 by hqureshi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 char	*ft_find_char(char *string, int c)
@@ -27,7 +39,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (0);
-	s_len = ft_strlen(s);
+	s_len = ft_gnl_strlen(s);
 	dest = (char *)malloc(len + 1);
 	if (!dest)
 	{
@@ -46,7 +58,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (dest);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	ft_gnl_strlen(const char *str)
 {
 	size_t	count;
 
@@ -77,12 +89,12 @@ void	*ft_memcpy(void *dest, const void *src, size_t num)
 	return (dest_char);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_gnl_strdup(const char *s1)
 {
 	char	*ptr;
 	int		size;
 
-	size = ft_strlen(s1) + 1;
+	size = ft_gnl_strlen(s1) + 1;
 	ptr = malloc(size);
 	if (!ptr)
 	{

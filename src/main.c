@@ -6,34 +6,28 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:51:51 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/15 16:55:43 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/16 15:40:46 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
+// void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+// {
+// 	char	*dst;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-}
-
-void	parse_map(t_data *data, char **argv)
-{
-	
-}
+// 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+// 	*(unsigned int*)dst = color;
+// }
 
 int	main(int argc, char **argv)
 {
 	t_data	data;
 
 	if (argc < 2)
-		exit_game("Error");
+		exit_game("Error\n");
 	initialize_game(&data);
 	parse_map(&data, argv[1]);
-
 	data.mlx_win = mlx_new_window(data.mlx, 750, 480, "So_long");
 	hook_events(&data);
 	mlx_loop(data.mlx);

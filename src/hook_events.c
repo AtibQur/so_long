@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 11:53:47 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/15 13:45:34 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/16 15:50:46 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	hook_key(int keycode, t_data *data)
 void	hook_events(t_data *data)
 {
 	mlx_key_hook(data->mlx_win, hook_key, data);
-	mlx_hook(data->mlx_win, 17, (1L << 17), exit_game, NULL);
+	mlx_hook(data->mlx_win, 17, (1L << 18), exit_game, NULL);
 }
 
 int	exit_game(char *error_message)

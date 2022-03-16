@@ -11,6 +11,10 @@ MLX			= ./mlx/libmlx.a
 SRCS		= src/main.c \
 			src/initialize_game.c \
 			src/hook_events.c \
+			gnl/get_next_line.c \
+			gnl/get_next_line_utils.c \
+			src/map_parsing.c \
+			
 
 
 OBJS		= $(SRCS:.c=.o)

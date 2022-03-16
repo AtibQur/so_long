@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:54:24 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/15 15:54:43 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/16 09:37:21 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,5 @@ void	initialize_game(t_data *data)
 		exit_game("Failed to start game");
 	data->row = 0;
 	data->collumn = 0;
+	data->map = 0;
 }

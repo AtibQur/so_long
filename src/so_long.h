@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:53:29 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/15 16:07:02 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/16 15:39:55 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,30 @@
 # include <errno.h>
 # include <stddef.h>
 
+# define TILESIZE = 32
+
 typedef enum e_keycode {
 	UP = 13,
 	DOWN = 1,
 	LEFT = 0,
 	RIGHT = 2,
 	ESC = 53,
-}	t_keys;
+}	t_keycode;
+
+typedef enum e_mapcode {
+	EMPTY_SPACE = '0',
+	WALL = '1',
+	COLLECTABLE = 'C',
+	EXIT = 'E',
+	PLAYER_POSITION = 'P'
+}	t_mapcode;
+
+typedef struct s_map {
+	int				x;
+	int				y;
+	char			content;
+	struct s_map	*next;
+}	t_map;
 
 typedef struct s_data {
 	void	*mlx;
@@ -39,6 +56,7 @@ typedef struct s_data {
 	int		endian;
 	int		row;
 	int		collumn;
+	t_map	*map;
 }	t_data;
 
 int		main(int argc, char *argv[]);
@@ -50,5 +68,10 @@ void	initialize_game(t_data *data);
 int		hook_key(int keycode, t_data *data);
 void	hook_events(t_data *data);
 int		exit_game(char *error_message);
+
+/* Parse map */
+void	parse_map(t_data *data, char *map);
+void	parse_position(t_map **map, char *line);
+t_map	*insert_tail(t_map **head, char *content, int x);
 
 #endif

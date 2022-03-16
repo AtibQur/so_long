@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/16 10:52:03 by hqureshi          #+#    #+#             */
+/*   Updated: 2022/03/16 10:54:34 by hqureshi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 char	*ft_gnl_strjoin(char *s1, char *s2)
@@ -38,7 +50,7 @@ char	*ft_rewrite_string(char *string)
 	{
 		if (string[i] == '\n')
 		{
-			temp = ft_strdup(&string[i + 1]);
+			temp = ft_gnl_strdup(&string[i + 1]);
 			free(string);
 			return (temp);
 		}
