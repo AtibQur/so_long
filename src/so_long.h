@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:53:29 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/16 15:39:55 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/16 17:16:15 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ int		exit_game(char *error_message);
 
 /* Parse map */
 void	parse_map(t_data *data, char *map);
-void	parse_position(t_map **map, char *line);
-t_map	*insert_tail(t_map **head, char *content, int x);
+void	parse_position(t_map **map, char *line, int y);
+t_map	*insert_tail(t_map **head, char *content, int x, int y);
+int		check_rectangle(char *line, int collumn);
 
 #endif

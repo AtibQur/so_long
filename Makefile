@@ -14,6 +14,8 @@ SRCS		= src/main.c \
 			gnl/get_next_line.c \
 			gnl/get_next_line_utils.c \
 			src/map_parsing.c \
+			src/check_errors.c \
+			
 			
 
 
