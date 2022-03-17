@@ -50,3 +50,6 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
+
+dump:
+	./test_script/tests.sh

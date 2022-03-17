@@ -41,7 +41,7 @@ int	exit_game(char *error_message)
 {
 	if (error_message)
 	{
-		ft_printf("%s", error_message);
+		ft_printf("Error --> %s\n", error_message);
 		exit(EXIT_FAILURE);
 	}
 	else

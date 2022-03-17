@@ -20,14 +20,20 @@
 // 	*(unsigned int*)dst = color;
 // }
 
+// void	check_map(t_data *data)
+// {
+
+// }
+
 int	main(int argc, char **argv)
 {
 	t_data	data;
 
 	if (argc < 2)
-		exit_game("Error\n");
+		exit_game("Choose a map");
 	initialize_game(&data);
 	parse_map(&data, argv[1]);
+	// check_map(&data);
 	data.mlx_win = mlx_new_window(data.mlx, 750, 480, "So_long");
 	hook_events(&data);
 	mlx_loop(data.mlx);

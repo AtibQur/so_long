@@ -19,5 +19,5 @@ void	initialize_game(t_data *data)
 		exit_game("Failed to start game");
 	data->row = 0;
 	data->collumn = 0;
-	data->map = 0;
+	data->map = NULL;
 }
