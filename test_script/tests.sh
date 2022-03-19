@@ -1,12 +1,16 @@
 GREEN="\033[0;32m"
   RED="\033[0;31m"
 RESET="\033[0m"
-  MAP="/maps/map-invalid-parameter.ber"
-ERROR=$(./so_long $MAP | grep "Error" | wc -l)
 
-if [ ${ERROR} -ge 1 ]
+# Checking for maps that do not exist
+
+NO_MAP="no_map"
+NO_MAP_ERROR=$(./so_long $NO_MAP | grep "Choose a correct map!" | wc -l)
+
+echo "Check error management for invalid input:"
+if [ ${NO_MAP_ERROR} -ge 0 ]
 then
-	echo -e "Check invalid parameter: $GREEN [OK] $RESET"
+	echo "Checking for invalid input: $GREEN [OK] $RESET"
 else
-	echo -e "Check invalid parameter: $RED [KO] $RESET"
+	echo "Checking for invalid input: $RED [KO] $RESET"
 fi

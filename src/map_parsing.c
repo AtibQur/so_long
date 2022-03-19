@@ -66,7 +66,7 @@ void	parse_map(t_data *data, char *map)
 	while (line)
 	{
 		if (check_rectangle(line, data->collumn) == 0)
-			exit_game("Invalid map, choose a correct map!");
+			exit_game("Invalid Map, choose a correct map!");
 		parse_position(&data->map, line, data->row);
 		line = get_next_line(fd);
 	}

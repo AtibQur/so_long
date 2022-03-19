@@ -20,10 +20,33 @@
 // 	*(unsigned int*)dst = color;
 // }
 
-// void	check_map(t_data *data)
-// {
+void	check_map_content(t_map *map, int column, int row)
+{
+	if (ft_strchr("01CEqwqewP", map->content) == 0)
+		exit_game("Invalid characters in map.");
 
-// }
+	column = 1;
+	row = 1;
+}
+
+void	check_map(t_data *data)
+{
+	t_map	*map;
+	int		column;
+	int		row;
+
+	map = data->map;
+	column = data->collumn;
+	row = data->row;
+
+	while (map)
+	{
+		check_map_content(map, column, row);
+		map = map->next;
+	}
+
+
+}
 
 int	main(int argc, char **argv)
 {
