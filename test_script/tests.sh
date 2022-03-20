@@ -6,6 +6,7 @@ FILE="so_long"
 
 if [ ! -f ${FILE} ]
 then
+	make fclean
 	make re
 fi
 
@@ -47,18 +48,18 @@ MISSING_P_ERROR=$(./so_long $MISSING_P | grep "Player is missing!" | wc -l)
 
 if [ ${MISSING_P_ERROR} -ge 1 ]
 then
-	echo "Checking for invalid walls: $GREEN [OK] $RESET"
+	echo "Checking for missing player $GREEN [OK] $RESET"
 else
-	echo "Checking for invalid walls: $RED [KO] $RESET"
+	echo "Checking for missing player: $RED [KO] $RESET"
 fi
 
-# Checking for missing player (E)
-MISSING_E="./maps/maps_missing_p.ber"
+# Checking for missing exit (E)
+MISSING_E="./maps/maps_missing_e.ber"
 MISSING_E_ERROR=$(./so_long $MISSING_E | grep "Player is missing!" | wc -l)
 
 if [ ${MISSING_E_ERROR} -ge 1 ]
 then
-	echo "Checking for invalid walls: $GREEN [OK] $RESET"
+	echo "Checking for missing exit: $GREEN [OK] $RESET"
 else
-	echo "Checking for invalid walls: $RED [KO] $RESET"
+	echo "Checking for missing exit: $RED [KO] $RESET"
 fi
