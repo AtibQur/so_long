@@ -15,7 +15,7 @@
 void	initialize_game(t_data *data, int argc)
 {
 	if (argc < 2)
-		exit_game("Choose a map");
+		exit_game("Not enough arguments, try again.");
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		exit_game("Failed to start game");

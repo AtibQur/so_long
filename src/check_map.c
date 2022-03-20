@@ -18,7 +18,7 @@ void	check_map_content(t_map *map, int column, int row)
 	if (map->x == 0 || map->y == 0 || map->x == column - 1 || map->y == row - 1 )
 	{
 		if (map->content != WALL)
-			exit_game("Map is not fully covered with walls!");
+			exit_game("Invalid walls, map is not fully covered with walls!");
 	}
 }
 
