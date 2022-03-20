@@ -11,42 +11,49 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <stdio.h>
 
-t_map	*insert_tail(t_map **head, char *content, int x, int y)
+t_map	*insert_tail(char content, int x, int y)
 {
 	t_map	*current_node;
-	t_map	*new_node;
 
-	current_node = *head;
-	new_node = (t_map *) malloc(sizeof(t_map));
-	if (!new_node)
-		return (NULL);
-	new_node->x = x;
-	new_node->y = y;
-	new_node->content = *content;
-	new_node->next = NULL;
-	while (current_node != NULL && current_node->next != NULL)
-		current_node = current_node->next;
-	if (current_node != NULL)
-		current_node->next = new_node;
-	else
-		head = &new_node;
-	return (*head);
+	current_node = (t_map *) malloc(sizeof(t_map));
+	if (!current_node)
+		exit_game("Malloc failed");
+	current_node->x = x;
+	current_node->y = y;
+	current_node->content = content;
+	current_node->next = NULL;
+	// printf("%c", new_node->content);
+	return (current_node);
 }
+
+void	add_new_node(t_map **map, t_map *new_node)
+{
+	t_map	*temp;
+
+	temp = *map;
+	if (*map)
+	{
+		while (temp->next != NULL)
+			temp = temp->next;
+		temp->next = new_node;
+	}
+	else
+		*map = new_node;
+}
+
 
 void	parse_position(t_map **map, char *line, int y)
 {
-	t_map	*point;
+	t_map	*position;
 	int		x;
 
 	x = 0;
 	while (line[x] && line[x] != '\n')
 	{
-		while (line[y])
-		{
-			point = insert_tail(map, &line[x], x, y);
-			y++;
-		}
+		position = insert_tail(line[x], x, y);
+		add_new_node(map, position);
 		x++;
 	}
 }
@@ -69,6 +76,7 @@ void	parse_map(t_data *data, char *map)
 			exit_game("Invalid Map, choose a correct map!");
 		parse_position(&data->map, line, data->row);
 		line = get_next_line(fd);
+		data->row++;
 	}
 	free(line);
 	close(fd);

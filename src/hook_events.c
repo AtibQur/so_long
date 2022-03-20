@@ -37,16 +37,4 @@ void	hook_events(t_data *data)
 	mlx_hook(data->mlx_win, 17, (1L << 17), exit_game, NULL);
 }
 
-int	exit_game(char *error_message)
-{
-	if (error_message)
-	{
-		ft_printf("%s\n", error_message);
-		exit(EXIT_FAILURE);
-	}
-	else
-	{
-		ft_printf("Game over!");
-		exit(EXIT_SUCCESS);
-	}
-}
+

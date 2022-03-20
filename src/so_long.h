@@ -36,7 +36,7 @@ typedef enum e_mapcode {
 	WALL = '1',
 	COLLECTABLE = 'C',
 	EXIT = 'E',
-	PLAYER_POSITION = 'P'
+	PLAYER = 'P'
 }	t_mapcode;
 
 typedef struct s_map {
@@ -62,7 +62,7 @@ typedef struct s_data {
 int		main(int argc, char *argv[]);
 
 /* Initialize the game */
-void	initialize_game(t_data *data);
+void	initialize_game(t_data *data, int argc);
 
 /* Hook events */
 int		hook_key(int keycode, t_data *data);
@@ -72,7 +72,12 @@ int		exit_game(char *error_message);
 /* Parse map */
 void	parse_map(t_data *data, char *map);
 void	parse_position(t_map **map, char *line, int y);
-t_map	*insert_tail(t_map **head, char *content, int x, int y);
+void	add_new_node(t_map **map, t_map *new_node);
 int		check_rectangle(char *line, int collumn);
+t_map	*insert_tail(char content, int x, int y);
+
+/* Check map*/
+void	check_map(t_data *data);
+void	check_map_content(t_map *map, int column, int row);
 
 #endif

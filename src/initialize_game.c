@@ -12,8 +12,10 @@
 
 #include "so_long.h"
 
-void	initialize_game(t_data *data)
+void	initialize_game(t_data *data, int argc)
 {
+	if (argc < 2)
+		exit_game("Choose a map");
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		exit_game("Failed to start game");
