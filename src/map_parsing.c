@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 15:40:18 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/16 17:29:08 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/21 12:34:56 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	parse_map(t_data *data, char *map)
 	fd = open(map, O_RDONLY);
 	if (fd < 0)
 		exit_game("Choose a correct map!\n");
+	check_ber_extension(map);
 	line = get_next_line(fd);
 	if (!line)
 		exit_game("No new line, choose a correct map!");

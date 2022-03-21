@@ -13,6 +13,7 @@ SRCS		= src/main.c \
 			src/check_map.c \
 			src/hook_events.c \
 			src/exit_game.c \
+			src/create_window.c \
 			gnl/get_next_line.c \
 			gnl/get_next_line_utils.c \
 			src/map_parsing.c \
@@ -50,5 +51,5 @@ re:			fclean all
 
 .PHONY:		all clean fclean re
 
-dump:
+test:
 	./test_script/tests.sh

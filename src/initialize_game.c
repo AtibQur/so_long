@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:54:24 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/21 12:11:16 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/21 12:29:52 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,8 @@ void	initialize_game(t_data *data, int argc)
 		exit_game("Failed to start game");
 	data->row = 0;
 	data->collumn = 0;
+	data->exit_count = 0;
+	data->player.player_count = 0;
+	data->collectable.collectable_count = 0;
 	data->map = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:53:29 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/21 12:19:51 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/21 15:16:29 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <errno.h>
 # include <stddef.h>
 
-# define TILESIZE = 32
+# define TILESIZE 32
 
 typedef enum e_keycode {
 	UP = 13,
@@ -90,10 +90,13 @@ void	parse_map(t_data *data, char *map);
 void	parse_position(t_map **map, char *line, int y);
 void	add_new_node(t_map **map, t_map *new_node);
 int		check_rectangle(char *line, int collumn);
+void	check_ber_extension(char *map);
 t_map	*insert_tail(char content, int x, int y);
 
 /* Check map*/
 void	check_map(t_data *data);
 void	check_map_content(t_map *map, int column, int row);
 
+/* Create window */
+void	create_window(t_data *data);
 #endif

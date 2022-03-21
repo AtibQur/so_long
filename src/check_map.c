@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 09:54:39 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/21 12:27:29 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/21 12:32:21 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,6 @@ void	check_map(t_data *data)
 	map = data->map;
 	column = data->collumn;
 	row = data->row;
-	data->exit_count = 0;
-	data->player.player_count = 0;
-	data->collectable.collectable_count = 0;
 	while (map)
 	{
 		check_map_content(map, column, row);

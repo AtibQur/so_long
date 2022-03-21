@@ -31,7 +31,7 @@ else
 	echo "Checking for invalid input: $RED [KO] $RESET"
 fi
 
-# Checking for invalid maps
+# Checking for invalid walls
 INVALID_WALL_MAP="./maps/maps_invalid_map.ber"
 INVALID_WALL_MAP_ERROR=$(./so_long $INVALID_WALL_MAP | grep "Invalid walls, map is not fully covered with walls!" | wc -l)
 
@@ -63,3 +63,15 @@ then
 else
 	echo "Checking for missing exit: $RED [KO] $RESET"
 fi
+
+# Checking for missing .ber etension
+MISSING_BER="./maps/maps_without_ber.be"
+MISSING_BER_ERROR=$(./so_long $MISSING_BER | grep "Wrong extension, use a file with .ber" | wc -l)
+
+if [ ${MISSING_BER_ERROR} -ge 1 ]
+then
+	echo "Checking for missing .ber extension: $GREEN [OK] $RESET"
+else
+	echo "Checking for missing .ber extension: $RED [KO] $RESET"
+fi
+
