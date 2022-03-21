@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:53:29 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/16 17:16:15 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/21 12:19:51 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,33 @@ typedef struct s_map {
 	struct s_map	*next;
 }	t_map;
 
+typedef struct s_player {
+	int		player_count;
+	int		x;
+	int		y;
+	void	*tanjiro_img01;
+}	t_player;
+
+typedef struct s_collectable {
+	int		collectable_count;
+	void	*collectable_1;
+}	t_collectable;
+
 typedef struct s_data {
-	void	*mlx;
-	void	*mlx_win;
-	char	*addr;
-	void	*img;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		row;
-	int		collumn;
-	t_map	*map;
+	void			*mlx;
+	void			*mlx_win;
+	char			*addr;
+	void			*img;
+	int				bits_per_pixel;
+	int				line_length;
+	int				endian;
+	int				row;
+	int				collumn;
+	int				exit_count;
+	void			*exit_img;
+	t_map			*map;
+	t_player		player;
+	t_collectable	collectable;
 }	t_data;
 
 int		main(int argc, char *argv[]);

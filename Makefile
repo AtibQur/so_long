@@ -35,15 +35,15 @@ $(NAME): 	$(OBJS) $(LIBFT) $(FT_PRINTF) $(MLX)
 
 clean:
 	rm -f $(OBJS) $(LIBFT) $(FT_PRINTF) $(MLX)
-	$(MAKE) -C libft/ clean
-	$(MAKE) -C ft_printf/ clean
-	$(MAKE) -C mlx/ clean
+	# $(MAKE) -C libft/ clean
+	# $(MAKE) -C ft_printf/ clean
+	# $(MAKE) -C mlx/ clean
 	@echo "\033[92mClean\033[0m"
 	
 fclean:		clean
 	rm -f $(NAME)
-	@$(MAKE) -C libft/ clean
-	@$(MAKE) -C ft_printf/ clean
+	# @$(MAKE) -C libft/ clean
+	# @$(MAKE) -C ft_printf/ clean
 	@echo "\033[92mFclean\033[0m"
 
 re:			fclean all

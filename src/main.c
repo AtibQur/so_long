@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:51:51 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/16 15:40:46 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/21 12:04:19 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	initialize_game(&data , argc);
+	initialize_game(&data, argc);
 	parse_map(&data, argv[1]);
 	check_map(&data);
 	data.mlx_win = mlx_new_window(data.mlx, 750, 480, "So_long");
-	hook_events(&data);
+	hook_events(&data); 
 	mlx_loop(data.mlx);
 }

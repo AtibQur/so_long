@@ -44,7 +44,7 @@ fi
 
 # Checking for missing player (P)
 MISSING_P="./maps/maps_missing_p.ber"
-MISSING_P_ERROR=$(./so_long $MISSING_P | grep "Player is missing!" | wc -l)
+MISSING_P_ERROR=$(./so_long $MISSING_P | grep "There are not enough players, exits or collectables!" | wc -l)
 
 if [ ${MISSING_P_ERROR} -ge 1 ]
 then
@@ -55,7 +55,7 @@ fi
 
 # Checking for missing exit (E)
 MISSING_E="./maps/maps_missing_e.ber"
-MISSING_E_ERROR=$(./so_long $MISSING_E | grep "Player is missing!" | wc -l)
+MISSING_E_ERROR=$(./so_long $MISSING_E | grep "There are not enough players, exits or collectables!" | wc -l)
 
 if [ ${MISSING_E_ERROR} -ge 1 ]
 then
