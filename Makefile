@@ -14,10 +14,12 @@ SRCS		= src/main.c \
 			src/hook_events.c \
 			src/exit_game.c \
 			src/create_window.c \
+			src/load_data.c \
 			gnl/get_next_line.c \
 			gnl/get_next_line_utils.c \
 			src/map_parsing.c \
 			src/check_errors.c \
+			src/push_data.c \
 
 OBJS		= $(SRCS:.c=.o)
 

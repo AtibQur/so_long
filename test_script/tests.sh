@@ -64,9 +64,21 @@ else
 	echo "Checking for missing exit: $RED [KO] $RESET"
 fi
 
-# Checking for missing .ber etension
+# Checking for missing .ber extension
 MISSING_BER="./maps/maps_without_ber.be"
 MISSING_BER_ERROR=$(./so_long $MISSING_BER | grep "Wrong extension, use a file with .ber" | wc -l)
+
+if [ ${MISSING_BER_ERROR} -ge 1 ]
+then
+	echo "Checking for missing .ber extension: $GREEN [OK] $RESET"
+else
+	echo "Checking for missing .ber extension: $RED [KO] $RESET"
+fi
+
+ESC= 53
+# Checking for missing ESC button extension
+MISSING_BER="./maps/maps_without_ber.be"
+MISSING_BER_ERROR=$(./so_long $MISSING_BER |  | grep "Wrong extension, use a file with .ber" | wc -l)
 
 if [ ${MISSING_BER_ERROR} -ge 1 ]
 then

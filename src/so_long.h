@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:53:29 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/21 15:16:29 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/22 17:17:16 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,26 @@ typedef struct s_map {
 	struct s_map	*next;
 }	t_map;
 
-typedef struct s_player {
-	int		player_count;
-	int		x;
-	int		y;
-	void	*tanjiro_img01;
-}	t_player;
-
 typedef struct s_collectable {
 	int		collectable_count;
 	void	*collectable_1;
 }	t_collectable;
+
+typedef struct s_img {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_img;
+
+typedef struct s_player {
+	int		player_count;
+	int		x;
+	int		y;
+	void	*img_01;
+	t_img	img;
+}	t_player;
 
 typedef struct s_data {
 	void			*mlx;
@@ -66,13 +75,15 @@ typedef struct s_data {
 	int				bits_per_pixel;
 	int				line_length;
 	int				endian;
+	int				exit_count;
+	t_img			exit;
+	t_img			wall;
+	t_img			background;
+	t_player		player;
+	t_map			*map;
+	t_collectable	collectable;
 	int				row;
 	int				collumn;
-	int				exit_count;
-	void			*exit_img;
-	t_map			*map;
-	t_player		player;
-	t_collectable	collectable;
 }	t_data;
 
 int		main(int argc, char *argv[]);
@@ -99,4 +110,15 @@ void	check_map_content(t_map *map, int column, int row);
 
 /* Create window */
 void	create_window(t_data *data);
+void	initialize_addres(t_data *data);
+
+/* load data/images */
+void	load_data(t_data *data);
+void	load_player(t_data *data);
+void	load_collectables(t_data *data);
+void	load_walls(t_data *data);
+
+/* push data to screen */
+void	push_data(t_data *data);
+
 #endif
