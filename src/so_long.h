@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:53:29 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/22 17:17:16 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/23 17:27:34 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ typedef enum e_mapcode {
 	PLAYER = 'P'
 }	t_mapcode;
 
+typedef struct s_img {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_img;
+
 typedef struct s_map {
 	int				x;
 	int				y;
@@ -51,14 +59,6 @@ typedef struct s_collectable {
 	void	*collectable_1;
 }	t_collectable;
 
-typedef struct s_img {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_img;
-
 typedef struct s_player {
 	int		player_count;
 	int		x;
@@ -70,11 +70,7 @@ typedef struct s_player {
 typedef struct s_data {
 	void			*mlx;
 	void			*mlx_win;
-	char			*addr;
-	void			*img;
-	int				bits_per_pixel;
-	int				line_length;
-	int				endian;
+	t_img			img;
 	int				exit_count;
 	t_img			exit;
 	t_img			wall;
@@ -119,6 +115,9 @@ void	load_collectables(t_data *data);
 void	load_walls(t_data *data);
 
 /* push data to screen */
-void	push_data(t_data *data);
+void			push_data(t_data *data);
+void			put_image_on_screen(t_data *data, int col, int row);
+unsigned int    get_pixel_from_xpm(t_img xpm, int x, int y);
+void    		pixel_put(t_img *img, int x, int y, int color);
 
 #endif
