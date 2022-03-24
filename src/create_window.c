@@ -21,9 +21,9 @@ void	initialize_addres(t_data *data)
 	data->background.addr = mlx_get_data_addr(data->background.img, \
 	&data->background.bits_per_pixel, &data->background.line_length, \
 	&data->background.endian);
-	// data->player.img.addr = mlx_get_data_addr(data->player.img.img, \
-	// &data->player.img.bits_per_pixel, &data->player.img.line_length, \
-	// &data->player.img.endian);
+	data->player.img.addr = mlx_get_data_addr(data->player.img.img, \
+	&data->player.img.bits_per_pixel, &data->player.img.line_length, \
+	&data->player.img.endian);
 }
 
 void	create_window(t_data *data)

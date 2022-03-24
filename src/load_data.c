@@ -35,8 +35,8 @@ void	load_player(t_data *data)
 	int	img_width;
 	int	img_height;
 
-	data->player.img_01 = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/tanjiro_01.xpm", &img_width, &img_height);
+	data->player.img.img = mlx_xpm_file_to_image(data->mlx, \
+	"./src/img/img_01.xpm", &img_width, &img_height);
 }
 
 void	load_data(t_data *data)

@@ -19,6 +19,8 @@ SRCS		= src/main.c \
 			gnl/get_next_line_utils.c \
 			src/map_parsing.c \
 			src/check_errors.c \
+			src/put_images.c \
+			src/pixel_functions.c \
 			src/push_data.c \
 
 OBJS		= $(SRCS:.c=.o)

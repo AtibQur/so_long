@@ -104,7 +104,7 @@ t_map	*insert_tail(char content, int x, int y);
 void	check_map(t_data *data);
 void	check_map_content(t_map *map, int column, int row);
 
-/* Create window */
+/* Create window and intialize adress */
 void	create_window(t_data *data);
 void	initialize_addres(t_data *data);
 
@@ -114,10 +114,18 @@ void	load_player(t_data *data);
 void	load_collectables(t_data *data);
 void	load_walls(t_data *data);
 
-/* push data to screen */
-void			push_data(t_data *data);
-void			put_image_on_screen(t_data *data, int col, int row);
+/* pixel functions (get pixels and places on screen) */
 unsigned int    get_pixel_from_xpm(t_img xpm, int x, int y);
 void    		pixel_put(t_img *img, int x, int y, int color);
+
+/* put images */
+void	put_background_on_screen(t_data *data, int col, int row);
+void	put_walls_on_screen(t_data *data, int col, int row);
+void	put_player_on_screen(t_data *data, int col, int row);
+void	put_exit_on_screen(t_data *data, int col, int row);
+/* push data to screen */
+void	push_data(t_data *data);
+
+
 
 #endif
