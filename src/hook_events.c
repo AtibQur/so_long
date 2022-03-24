@@ -22,13 +22,24 @@ int	hook_key(int keycode, t_data *data)
 		exit(0);
 	}
 	if (keycode == DOWN)
+	{
 		ft_printf("Down  | %d\n", data->moves_count);
+		data->player.y += 1;
+	}
 	if (keycode == UP)
-		ft_printf("Up    | %d\n", data->moves_count);
+	{
+			data->player.y -= 1;
+	}
 	if (keycode == RIGHT)
+	{
 		ft_printf("Right | %d\n", data->moves_count);
+		data->player.x += 1;
+	}
 	if (keycode == LEFT)
+	{
 		ft_printf("Left  | %d\n", data->moves_count);
+		data->player.x -= 1;
+	}
 	return (0);
 }
 

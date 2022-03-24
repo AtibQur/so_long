@@ -24,7 +24,6 @@ int	main(int argc, char **argv)
 	load_data(&data);
 	create_window(&data);
 	push_data(&data);
-	// mlx_put_image_to_window()
 	hook_events(&data);
 	mlx_loop(data.mlx);
 }

@@ -64,6 +64,17 @@ else
 	echo "Checking for missing exit: $RED [KO] $RESET"
 fi
 
+# Checking for missing collectables (COLLECTABLES)
+MISSING_C="./maps/maps_missing_c.ber"
+MISSING_C_ERROR=$(./so_long $MISSING_C | grep "There are not enough players, exits or collectables!" | wc -l)
+
+if [ ${MISSING_E_ERROR} -ge 1 ]
+then
+	echo "Checking for missing collectables: $GREEN [OK] $RESET"
+else
+	echo "Checking for missing collectables: $RED [KO] $RESET"
+fi
+
 # Checking for missing .ber extension
 MISSING_BER="./maps/maps_without_ber.be"
 MISSING_BER_ERROR=$(./so_long $MISSING_BER | grep "Wrong extension, use a file with .ber" | wc -l)
@@ -75,15 +86,3 @@ else
 	echo "Checking for missing .ber extension: $RED [KO] $RESET"
 fi
 
-# Checking for missing ESC button extension
-
-read -s -n1 key
-ESC_KEY="./maps/maps_valid_map.ber"
-ESC_KEY_ERROR=$(./so_long $ESC_KEY | $key | grep "Exit game" | wc -l)
-
-if [ ${ESC_KEY_ERROR} -ge 1]
-then
-	echo "Checking for missing .ber extension: $GREEN [OK] $RESET"
-else
-	echo "Checking for missing .ber extension: $RED [KO] $RESET"
-fi

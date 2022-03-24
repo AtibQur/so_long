@@ -29,6 +29,7 @@ typedef enum e_keycode {
 	LEFT = 0,
 	RIGHT = 2,
 	ESC = 53,
+	R = 15,
 }	t_keycode;
 
 typedef enum e_mapcode {
