@@ -68,7 +68,7 @@ fi
 MISSING_C="./maps/maps_missing_c.ber"
 MISSING_C_ERROR=$(./so_long $MISSING_C | grep "There are not enough players, exits or collectables!" | wc -l)
 
-if [ ${MISSING_E_ERROR} -ge 1 ]
+if [ ${MISSING_C_ERROR} -ge 1 ]
 then
 	echo "Checking for missing collectables: $GREEN [OK] $RESET"
 else
