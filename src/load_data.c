@@ -26,8 +26,8 @@ void	load_collectables(t_data *data)
 	int	img_width;
 	int	img_height;
 
-	data->collectable.collectable_1 = mlx_xpm_file_to_image(data->mlx, \
-					"./src/img/collectable_01", &img_width, &img_height);
+	data->collectable.img.img = mlx_xpm_file_to_image(data->mlx, \
+					"./src/img/collectable_01.xpm", &img_width, &img_height);
 }
 
 void	load_player(t_data *data)

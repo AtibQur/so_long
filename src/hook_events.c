@@ -14,6 +14,7 @@
 
 int	hook_key(int keycode, t_data *data)
 {
+	data->moves_count++;
 	if (keycode == ESC)
 	{
 		mlx_destroy_window(data->mlx_win, data->mlx_win);
@@ -21,13 +22,13 @@ int	hook_key(int keycode, t_data *data)
 		exit(0);
 	}
 	if (keycode == DOWN)
-		ft_printf("Down\n");
+		ft_printf("Down  | %d\n", data->moves_count);
 	if (keycode == UP)
-		ft_printf("Up\n");
+		ft_printf("Up    | %d\n", data->moves_count);
 	if (keycode == RIGHT)
-		ft_printf("Right\n");
+		ft_printf("Right | %d\n", data->moves_count);
 	if (keycode == LEFT)
-		ft_printf("Left\n");
+		ft_printf("Left  | %d\n", data->moves_count);
 	return (0);
 }
 

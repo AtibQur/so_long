@@ -24,6 +24,9 @@ void	initialize_addres(t_data *data)
 	data->player.img.addr = mlx_get_data_addr(data->player.img.img, \
 	&data->player.img.bits_per_pixel, &data->player.img.line_length, \
 	&data->player.img.endian);
+	data->collectable.img.addr = mlx_get_data_addr(data->collectable.img.img, \
+	&data->collectable.img.bits_per_pixel, &data->collectable.img.line_length, \
+	&data->collectable.img.endian);
 }
 
 void	create_window(t_data *data)

@@ -26,6 +26,8 @@ void	push_data(t_data *data)
 			put_player_on_screen(data, map->x, map->y);
 		if (map->content == EXIT)
 			put_exit_on_screen(data, map->x, map->y);
+		if (map->content == COLLECTABLE)
+			put_collectable_on_screen(data, map->x, map->y);
 		map = map->next;
 	}
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);

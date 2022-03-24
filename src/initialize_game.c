@@ -22,6 +22,7 @@ void	initialize_game(t_data *data, int argc)
 	data->row = 0;
 	data->collumn = 0;
 	data->exit_count = 0;
+	data->moves_count = 0;
 	data->player.player_count = 0;
 	data->collectable.collectable_count = 0;
 	data->map = NULL;

@@ -57,6 +57,7 @@ typedef struct s_map {
 typedef struct s_collectable {
 	int		collectable_count;
 	void	*collectable_1;
+	t_img	img;
 }	t_collectable;
 
 typedef struct s_player {
@@ -72,6 +73,7 @@ typedef struct s_data {
 	void			*mlx_win;
 	t_img			img;
 	int				exit_count;
+	int				moves_count;
 	t_img			exit;
 	t_img			wall;
 	t_img			background;
@@ -123,6 +125,8 @@ void	put_background_on_screen(t_data *data, int col, int row);
 void	put_walls_on_screen(t_data *data, int col, int row);
 void	put_player_on_screen(t_data *data, int col, int row);
 void	put_exit_on_screen(t_data *data, int col, int row);
+void	put_collectable_on_screen(t_data *data, int col, int row);
+
 /* push data to screen */
 void	push_data(t_data *data);
 
