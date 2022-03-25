@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:29:22 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/22 16:34:23 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/25 16:05:48 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	load_data(t_data *data)
 													&img_width, &img_height);
 	data->background.img = mlx_xpm_file_to_image(data->mlx, \
 				"./src/img/background.xpm", &img_width, &img_height);
+	data->attacker.img.img = mlx_xpm_file_to_image(data->mlx, \
+	"./src/img/enemy_01.xpm", &img_width, &img_height);
 	load_player(data);
 	load_collectables(data);
 	load_walls(data);

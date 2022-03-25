@@ -6,11 +6,18 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 09:54:39 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/21 12:32:21 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/25 15:58:52 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	check_attacker_existance(t_data *data, int x, int y)
+{
+			data->attacker.attacker_count++;
+			data->attacker.x = x;
+			data->attacker.y = y;
+}
 
 int	check_content_existance(t_data *data)
 {
@@ -29,6 +36,8 @@ int	check_content_existance(t_data *data)
 			data->player.x = map->x;
 			data->player.y = map->y;
 		}
+		if (map->content == ATTACKER)
+			check_attacker_existance(data, map->x, map->y);
 		map = map->next;
 	}
 	if (data->collectable.collectable_count >= 1 && \
@@ -38,7 +47,7 @@ int	check_content_existance(t_data *data)
 	return (0);
 }
 
-// 1. Check if only "01CPE" is in the map with strchr
+// 1. Check if only "01CPEA" is in the map with strchr
 // 2. Check if walls are covered with WALLS (1)
 // example -> 111 | the first x/y position is 00/01/02
 //         	  101 | check every position that has a x/y position with 0 in it
@@ -49,7 +58,7 @@ int	check_content_existance(t_data *data)
 
 void	check_map_content(t_map *map, int column, int row)
 {
-	if (ft_strchr("01CPE", map->content) == 0)
+	if (ft_strchr("01CPEA", map->content) == 0)
 		exit_game("Invalid characters in map.");
 	if (map->x == 0 || map->y == 0 || map->x == column - 1 || map->y == row - 1)
 		if (map->content != WALL)

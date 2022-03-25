@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:53:29 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/25 09:16:16 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/25 16:00:02 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ typedef enum e_mapcode {
 	WALL = '1',
 	COLLECTABLE = 'C',
 	EXIT = 'E',
-	PLAYER = 'P'
+	PLAYER = 'P',
+	ATTACKER = 'A',
 }	t_mapcode;
 
 typedef struct s_img {
@@ -69,6 +70,14 @@ typedef struct s_player {
 	t_img	img;
 }	t_player;
 
+typedef struct s_attacker {
+	int		attacker_count;
+	int		x;
+	int		y;
+	void	*img_01;
+	t_img	img;
+}	t_attacker;
+
 typedef struct s_data {
 	void			*mlx;
 	void			*mlx_win;
@@ -79,6 +88,7 @@ typedef struct s_data {
 	t_img			wall;
 	t_img			background;
 	t_player		player;
+	t_attacker		attacker;
 	t_map			*map;
 	t_collectable	collectable;
 	int				row;
@@ -106,6 +116,8 @@ t_map	*insert_tail(char content, int x, int y);
 /* Check map*/
 void	check_map(t_data *data);
 void	check_map_content(t_map *map, int column, int row);
+int		check_content_existance(t_data *data);
+void	check_attacker_existance(t_data *data, int x, int y);
 
 /* Create window and intialize adress */
 void	create_window(t_data *data);
@@ -118,8 +130,8 @@ void	load_collectables(t_data *data);
 void	load_walls(t_data *data);
 
 /* pixel functions (get pixels and places on screen) */
-unsigned int    get_pixel_from_xpm(t_img xpm, int x, int y);
-void    		pixel_put(t_img *img, int x, int y, int color);
+unsigned int	get_pixel_from_xpm(t_img xpm, int x, int y);
+void			pixel_put(t_img *img, int x, int y, int color);
 
 /* put images */
 void	put_background_on_screen(t_data *data, int col, int row);
@@ -130,7 +142,5 @@ void	put_collectable_on_screen(t_data *data, int col, int row);
 
 /* push data to screen */
 void	push_data(t_data *data);
-
-
 
 #endif
