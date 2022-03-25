@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 15:40:18 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/21 12:34:56 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/25 13:03:31 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_map	*insert_tail(char content, int x, int y)
 	current_node->y = y;
 	current_node->content = content;
 	current_node->next = NULL;
-	// printf("%c", new_node->content);
 	return (current_node);
 }
 
@@ -42,7 +41,6 @@ void	add_new_node(t_map **map, t_map *new_node)
 	else
 		*map = new_node;
 }
-
 
 void	parse_position(t_map **map, char *line, int y)
 {

@@ -6,40 +6,72 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 11:53:47 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/22 11:30:44 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/25 13:02:18 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+int	check_movement(t_data *data, int row, int col, char *move)
+{
+	t_map	*map;
+
+	map = data->map;
+	ft_printf("%s    | %d\n", move, data->moves_count++);
+	while (map)
+	{
+		if (map->x == row && map->y == col && map->content != WALL)
+		{
+			if (map->content == COLLECTABLE)
+			{
+				data->collectable.collectable_count--;
+				map->content = EMPTY_SPACE;
+			}
+			if (map->content == EXIT)
+				if (data->collectable.collectable_count == 0)
+					exit_game("GG WP");
+			return (1);
+		}
+		map = map->next;
+	}
+	return (0);
+}
+
+char	*key(int move)
+{
+	char	*ret;
+
+	if (move == DOWN)
+		ret = "Down ";
+	if (move == UP)
+		ret = "Up   ";
+	if (move == RIGHT)
+		ret = "Right";
+	if (move == LEFT)
+		ret = "Left ";
+	return (ret);
+}
+
 int	hook_key(int keycode, t_data *data)
 {
-	data->moves_count++;
 	if (keycode == ESC)
 	{
 		mlx_destroy_window(data->mlx_win, data->mlx_win);
 		exit_game("Exit game...");
-		exit(0);
 	}
 	if (keycode == DOWN)
-	{
-		ft_printf("Down  | %d\n", data->moves_count);
-		data->player.y += 1;
-	}
+		if (check_movement(data, data->player.x, data->player.y + 1, key(DOWN)))
+			data->player.y += 1;
 	if (keycode == UP)
-	{
+		if (check_movement(data, data->player.x, data->player.y - 1, key(UP)))
 			data->player.y -= 1;
-	}
 	if (keycode == RIGHT)
-	{
-		ft_printf("Right | %d\n", data->moves_count);
-		data->player.x += 1;
-	}
+		if (check_movement(data, data->player.x +1, data->player.y, key(RIGHT)))
+			data->player.x += 1;
 	if (keycode == LEFT)
-	{
-		ft_printf("Left  | %d\n", data->moves_count);
-		data->player.x -= 1;
-	}
+		if (check_movement(data, data->player.x - 1, data->player.y, key(LEFT)))
+			data->player.x -= 1;
+	push_data(data);
 	return (0);
 }
 

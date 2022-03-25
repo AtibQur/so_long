@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:54:24 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/22 16:37:43 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/25 11:21:39 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	initialize_game(t_data *data, int argc)
 	data->row = 0;
 	data->collumn = 0;
 	data->exit_count = 0;
-	data->moves_count = 0;
+	data->moves_count = 1;
 	data->player.player_count = 0;
 	data->collectable.collectable_count = 0;
 	data->map = NULL;
