@@ -6,11 +6,15 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:54:24 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/25 11:21:39 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/25 13:58:13 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+// Initialize the game with mlx_init(); 
+// This wll start the whole process and keeps looping with mlx_loop();
+// 
 
 void	initialize_game(t_data *data, int argc)
 {

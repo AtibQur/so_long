@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:06:34 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/23 17:26:41 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/25 13:59:19 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	create_window(t_data *data)
 		exit_game("Creating window failed");
 	data->img.img = mlx_new_image(data->mlx, data->collumn * TILESIZE, \
 											data->row * TILESIZE);
-	data->img.addr = mlx_get_data_addr(data->img.img, &data->img.bits_per_pixel, \
-								&data->img.line_length, &data->img.endian);
+	data->img.addr = mlx_get_data_addr(data->img.img, &data->img.bits_per_pixel \
+								, &data->img.line_length, &data->img.endian);
 	initialize_addres(data);
 }

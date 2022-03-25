@@ -6,13 +6,12 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:51:51 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/23 17:43:47 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/25 14:00:09 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <stdio.h>
-
 
 int	main(int argc, char **argv)
 {
