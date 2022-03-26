@@ -26,6 +26,8 @@ void	push_data(t_data *data)
 			put_exit_on_screen(data, map->x, map->y);
 		if (map->content == COLLECTABLE)
 			put_collectable_on_screen(data, map->x, map->y);
+		if (data->attacker.attacker_count >= 1)
+			put_attacker_on_screen(data, data->attacker.x, data->attacker.y);
 		put_player_on_screen(data, data->player.x, data->player.y);
 		map = map->next;
 	}

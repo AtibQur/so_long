@@ -66,7 +66,6 @@ typedef struct s_player {
 	int		player_count;
 	int		x;
 	int		y;
-	void	*img_01;
 	t_img	img;
 }	t_player;
 
@@ -74,7 +73,6 @@ typedef struct s_attacker {
 	int		attacker_count;
 	int		x;
 	int		y;
-	void	*img_01;
 	t_img	img;
 }	t_attacker;
 
@@ -119,15 +117,21 @@ void	check_map_content(t_map *map, int column, int row);
 int		check_content_existance(t_data *data);
 void	check_attacker_existance(t_data *data, int x, int y);
 
-/* Create window and intialize adress */
+/* Create window and intialize adresses */
 void	create_window(t_data *data);
-void	initialize_addres(t_data *data);
+void	initialize_exit_addres(t_data *data);
+void	initialize_attacker_addres(t_data *data);
+void	initialize_player_addres(t_data *data);
+void	initialize_collectable_addres(t_data *data);
+
 
 /* load data/images */
 void	load_data(t_data *data);
 void	load_player(t_data *data);
 void	load_collectables(t_data *data);
 void	load_walls(t_data *data);
+void	load_exit(t_data *data);
+void	load_attacker(t_data *data);
 
 /* pixel functions (get pixels and places on screen) */
 unsigned int	get_pixel_from_xpm(t_img xpm, int x, int y);
@@ -137,6 +141,7 @@ void			pixel_put(t_img *img, int x, int y, int color);
 void	put_background_on_screen(t_data *data, int col, int row);
 void	put_walls_on_screen(t_data *data, int col, int row);
 void	put_player_on_screen(t_data *data, int col, int row);
+void	put_attacker_on_screen(t_data *data, int col, int row);
 void	put_exit_on_screen(t_data *data, int col, int row);
 void	put_collectable_on_screen(t_data *data, int col, int row);
 

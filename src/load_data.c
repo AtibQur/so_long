@@ -17,8 +17,8 @@ void	load_walls(t_data *data)
 	int	img_width;
 	int	img_height;
 
-	data->wall.img = mlx_xpm_file_to_image(data->mlx, "./src/img/wall_01.xpm", \
-													&img_width, &img_height);
+	data->wall.img = mlx_xpm_file_to_image(data->mlx, \
+	"./src/img/wall_01.xpm", &img_width, &img_height);
 }
 
 void	load_collectables(t_data *data)
@@ -27,7 +27,7 @@ void	load_collectables(t_data *data)
 	int	img_height;
 
 	data->collectable.img.img = mlx_xpm_file_to_image(data->mlx, \
-					"./src/img/collectable_01.xpm", &img_width, &img_height);
+	"./src/img/collectable_01.xpm", &img_width, &img_height);
 }
 
 void	load_player(t_data *data)
@@ -39,18 +39,33 @@ void	load_player(t_data *data)
 	"./src/img/img_01.xpm", &img_width, &img_height);
 }
 
+void	load_attacker(t_data *data)
+{
+	int	img_width;
+	int	img_height;
+
+	data->attacker.img.img = mlx_xpm_file_to_image(data->mlx, \
+	"./src/img/enemy_01.xpm", &img_width, &img_height);
+}
+
+void	load_exit(t_data *data)
+{
+	int	img_width;
+	int	img_height;
+
+	data->exit.img = mlx_xpm_file_to_image(data->mlx, \
+	"./src/img/exit.xpm", &img_width, &img_height);
+}
 void	load_data(t_data *data)
 {
 	int	img_width;
 	int	img_height;
 
-	data->exit.img = mlx_xpm_file_to_image(data->mlx, "./src/img/exit.xpm", \
-													&img_width, &img_height);
 	data->background.img = mlx_xpm_file_to_image(data->mlx, \
-				"./src/img/background.xpm", &img_width, &img_height);
-	data->attacker.img.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_01.xpm", &img_width, &img_height);
+	"./src/img/background.xpm", &img_width, &img_height);
 	load_player(data);
 	load_collectables(data);
+	load_attacker(data);
+	load_exit(data);
 	load_walls(data);
 }
