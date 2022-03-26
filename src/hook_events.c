@@ -17,7 +17,7 @@ int	check_movement(t_data *data, int row, int col, char *move)
 	t_map	*map;
 
 	map = data->map;
-	ft_printf("%s    | %d\n", move, data->moves_count++);
+	ft_printf("\033[0;36m%s\033[0m | \033[0;35m%d\n\033[0m", move, data->moves_count++);
 	while (map)
 	{
 		if (map->x == row && map->y == col && map->content != WALL)

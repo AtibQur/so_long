@@ -4,10 +4,14 @@ RESET="\033[0m"
 
 FILE="so_long"
 
+echo "Checking if so_long executable file exists.."
 if [ ! -f ${FILE} ]
 then
+	echo "No so_long executable file found, creating one.."
 	make fclean
 	make re
+else
+	echo "Executable file exists! time to check"
 fi
 
 # Checking for no input
@@ -48,7 +52,7 @@ MISSING_P_ERROR=$(./so_long $MISSING_P | grep "There are not enough players, exi
 
 if [ ${MISSING_P_ERROR} -ge 1 ]
 then
-	echo "Checking for missing player $GREEN [OK] $RESET"
+	echo "Checking for missing player: $GREEN [OK] $RESET"
 else
 	echo "Checking for missing player: $RED [KO] $RESET"
 fi

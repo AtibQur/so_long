@@ -16,7 +16,9 @@
 int	main(int argc, char **argv)
 {
 	t_data	data;
-
+	
+	data.argc = argc;
+	data.argv = argv[1];
 	initialize_game(&data, argc);
 	parse_map(&data, argv[1]);
 	check_map(&data);

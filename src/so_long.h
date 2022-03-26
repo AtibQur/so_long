@@ -91,6 +91,8 @@ typedef struct s_data {
 	t_collectable	collectable;
 	int				row;
 	int				collumn;
+	int				argc;
+	char			*argv;
 }	t_data;
 
 int		main(int argc, char *argv[]);
