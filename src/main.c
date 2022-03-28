@@ -6,12 +6,11 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:51:51 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/28 11:58:21 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/28 15:46:00 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
@@ -23,6 +22,7 @@ int	main(int argc, char **argv)
 	load_data(&data);
 	create_window(&data);
 	push_data(&data);
+	mlx_loop_hook(data.mlx, animations, &data);
 	hook_events(&data);
 	mlx_loop(data.mlx);
 }

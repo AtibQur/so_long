@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:29:22 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/28 13:05:24 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/28 15:33:46 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ void	load_collectables(t_data *data)
 
 	data->collectable.img.img = mlx_xpm_file_to_image(data->mlx, \
 	"./src/img/collectable_01.xpm", &img_width, &img_height);
+	data->collectable.img_02.img = mlx_xpm_file_to_image(data->mlx, \
+	"./src/img/collectable_02.xpm", &img_width, &img_height);
+	data->collectable.img_03.img = mlx_xpm_file_to_image(data->mlx, \
+	"./src/img/collectable_03.xpm", &img_width, &img_height);
 }
 
 void	load_player(t_data *data)

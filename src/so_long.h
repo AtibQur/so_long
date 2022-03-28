@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:53:29 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/28 13:11:33 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/28 15:46:42 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,10 @@ typedef struct s_map {
 
 typedef struct s_collectable {
 	int		collectable_count;
-	void	*collectable_1;
+	t_img	current_img;
 	t_img	img;
+	t_img	img_02;
+	t_img	img_03;
 }	t_collectable;
 
 typedef struct s_player {
@@ -77,6 +79,7 @@ typedef struct s_attacker {
 }	t_attacker;
 
 typedef struct s_wall {
+	t_img	current_img;
 	t_img	img;
 	t_img	img_02;
 	t_img	img_03;
@@ -131,7 +134,6 @@ void	initialize_player_addres(t_data *data);
 void	initialize_collectable_addres(t_data *data);
 void	initialize_wall_addres(t_data *data);
 
-
 /* load data/images */
 void	load_data(t_data *data);
 void	load_player(t_data *data);
@@ -157,6 +159,10 @@ void	check_enemy_movement(t_data *data);
 void	load_attacker(t_data *data);
 void	initialize_attacker_addres(t_data *data);
 void	put_attacker_on_screen(t_data *data, int col, int row);
+
+/* animations */
+int		animations(t_data *data);
+int		wall_animations(t_data *data);
 
 /* push data to screen */
 void	push_data(t_data *data);

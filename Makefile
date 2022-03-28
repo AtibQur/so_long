@@ -23,6 +23,7 @@ SRCS		= src/main.c \
 			src/attacker_info.c \
 			src/pixel_functions.c \
 			src/push_data.c \
+			src/animations.c \
 
 OBJS		= $(SRCS:.c=.o)
 
