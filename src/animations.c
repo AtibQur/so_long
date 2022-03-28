@@ -50,9 +50,30 @@ int	collectable_animations(t_data *data)
 	return (0);
 }
 
+int	player_animations(t_data *data)
+{
+	static int	i;
+
+	if (i == 0)
+		data->player.current_img = data->player.img;
+	if (i == 20)
+		data->player.current_img = data->player.img_02;
+	if (i == 40)
+		data->player.current_img = data->player.img_03;
+	if (i == 60)
+		data->player.current_img = data->player.img_02;
+	i++;
+	if (i == 80)
+		i = 0;
+	push_data(data);
+	return (0);
+}
+
 int	animations(t_data *data)
 {
 	wall_animations(data);
+	player_animations(data);
+	attacker_animations(data);
 	collectable_animations(data);
 	return (0);
 }

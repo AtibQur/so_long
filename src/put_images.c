@@ -67,7 +67,7 @@ void	put_player_on_screen(t_data *data, int col, int row)
 		x = 0;
 		while (x < TILESIZE)
 		{
-			color = get_pixel_from_xpm(data->player.img, x, y);
+			color = get_pixel_from_xpm(data->player.current_img, x, y);
 			if (color != 0xFF000000)
 				pixel_put(&data->img, x + (col * TILESIZE), \
 							y + (row * TILESIZE), color);

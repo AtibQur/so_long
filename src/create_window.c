@@ -17,6 +17,16 @@ void	initialize_player_addres(t_data *data)
 	data->player.img.addr = mlx_get_data_addr(data->player.img.img, \
 	&data->player.img.bits_per_pixel, &data->player.img.line_length, \
 	&data->player.img.endian);
+	data->player.img_02.addr = mlx_get_data_addr(data->player.img_02.img, \
+	&data->player.img_02.bits_per_pixel, &data->player.img_02.line_length, \
+	&data->player.img_02.endian);
+	data->player.img_03.addr = mlx_get_data_addr(data->player.img_03.img, \
+	&data->player.img_03.bits_per_pixel, &data->player.img_03.line_length, \
+	&data->player.img_03.endian);
+	data->player.img_04.addr = mlx_get_data_addr(data->player.img_04.img, \
+	&data->player.img_04.bits_per_pixel, &data->player.img_04.line_length, \
+	&data->player.img_04.endian);
+	data->player.current_img = data->player.img;
 }
 
 void	initialize_collectable_addres(t_data *data)

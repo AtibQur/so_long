@@ -45,6 +45,12 @@ void	load_player(t_data *data)
 
 	data->player.img.img = mlx_xpm_file_to_image(data->mlx, \
 	"./src/img/img_01.xpm", &img_width, &img_height);
+	data->player.img_02.img = mlx_xpm_file_to_image(data->mlx, \
+	"./src/img/img_02.xpm", &img_width, &img_height);
+	data->player.img_03.img = mlx_xpm_file_to_image(data->mlx, \
+	"./src/img/img_03.xpm", &img_width, &img_height);
+	data->player.img_04.img = mlx_xpm_file_to_image(data->mlx, \
+	"./src/img/img_04.xpm", &img_width, &img_height);
 }
 
 void	load_exit(t_data *data)

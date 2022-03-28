@@ -29,7 +29,6 @@ typedef enum e_keycode {
 	LEFT = 0,
 	RIGHT = 2,
 	ESC = 53,
-	R = 15,
 }	t_keycode;
 
 typedef enum e_mapcode {
@@ -68,14 +67,22 @@ typedef struct s_player {
 	int		player_count;
 	int		x;
 	int		y;
+	t_img	current_img;
 	t_img	img;
+	t_img	img_02;
+	t_img	img_03;
+	t_img	img_04;
 }	t_player;
 
 typedef struct s_attacker {
 	int		attacker_count;
 	int		x;
 	int		y;
+	t_img	current_img;
 	t_img	img;
+	t_img	img_02;
+	t_img	img_03;
+	t_img	img_04;
 }	t_attacker;
 
 typedef struct s_wall {
@@ -163,6 +170,10 @@ void	put_attacker_on_screen(t_data *data, int col, int row);
 /* animations */
 int		animations(t_data *data);
 int		wall_animations(t_data *data);
+int		attacker_animations(t_data *data);
+int		collectable_animations(t_data *data);
+int		player_animations(t_data *data);
+
 
 /* push data to screen */
 void	push_data(t_data *data);
