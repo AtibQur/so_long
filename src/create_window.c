@@ -6,19 +6,11 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:06:34 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/25 13:59:19 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/28 13:11:39 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-
-void	initialize_attacker_addres(t_data *data)
-{
-	data->attacker.img.addr = mlx_get_data_addr(data->attacker.img.img, \
-	&data->attacker.img.bits_per_pixel, &data->attacker.img.line_length, \
-	&data->attacker.img.endian);
-}
 
 void	initialize_player_addres(t_data *data)
 {
@@ -40,6 +32,19 @@ void	initialize_exit_addres(t_data *data)
 	&data->exit.bits_per_pixel, &data->exit.line_length, &data->exit.endian);
 }
 
+void	initialize_wall_addres(t_data *data)
+{
+	data->wall.img.addr = mlx_get_data_addr(data->wall.img.img, \
+	&data->wall.img.bits_per_pixel, &data->wall.img.line_length, \
+	&data->wall.img.endian);
+	data->wall.img_02.addr = mlx_get_data_addr(data->wall.img.img, \
+	&data->wall.img.bits_per_pixel, &data->wall.img.line_length, \
+	&data->wall.img.endian);
+	data->wall.img_03.addr = mlx_get_data_addr(data->wall.img.img, \
+	&data->wall.img.bits_per_pixel, &data->wall.img.line_length, \
+	&data->wall.img.endian);
+}
+
 void	create_window(t_data *data)
 {
 	data->mlx_win = mlx_new_window(data->mlx, data->collumn * TILESIZE, \
@@ -50,8 +55,6 @@ void	create_window(t_data *data)
 											data->row * TILESIZE);
 	data->img.addr = mlx_get_data_addr(data->img.img, &data->img.bits_per_pixel \
 								, &data->img.line_length, &data->img.endian);
-	data->wall.addr = mlx_get_data_addr(data->wall.img, \
-	&data->wall.bits_per_pixel, &data->wall.line_length, &data->wall.endian);
 	data->background.addr = mlx_get_data_addr(data->background.img, \
 	&data->background.bits_per_pixel, &data->background.line_length, \
 	&data->background.endian);
@@ -59,4 +62,5 @@ void	create_window(t_data *data)
 	initialize_collectable_addres(data);
 	initialize_attacker_addres(data);
 	initialize_player_addres(data);
+	initialize_wall_addres(data);
 }

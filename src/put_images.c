@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 14:06:09 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/25 14:06:31 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/28 12:59:21 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	put_walls_on_screen(t_data *data, int col, int row)
 		x = 0;
 		while (x < TILESIZE)
 		{
-			color = get_pixel_from_xpm(data->wall, x, y);
+			color = get_pixel_from_xpm(data->wall.img, x, y);
 			if (color != 0xFF000000)
 				pixel_put(&data->img, x + (col * TILESIZE), \
 								y + (row * TILESIZE), color);
@@ -68,28 +68,6 @@ void	put_player_on_screen(t_data *data, int col, int row)
 		while (x < TILESIZE)
 		{
 			color = get_pixel_from_xpm(data->player.img, x, y);
-			if (color != 0xFF000000)
-				pixel_put(&data->img, x + (col * TILESIZE), \
-							y + (row * TILESIZE), color);
-			x++;
-		}
-		y++;
-	}
-}
-
-void	put_attacker_on_screen(t_data *data, int col, int row)
-{
-	int				x;
-	int				y;
-	unsigned int	color;
-
-	y = 0;
-	while (y < TILESIZE)
-	{
-		x = 0;
-		while (x < TILESIZE)
-		{
-			color = get_pixel_from_xpm(data->attacker.img, x, y);
 			if (color != 0xFF000000)
 				pixel_put(&data->img, x + (col * TILESIZE), \
 							y + (row * TILESIZE), color);

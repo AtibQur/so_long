@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 11:53:47 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/25 13:02:18 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/28 13:23:38 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	check_movement(t_data *data, int row, int col, char *move)
 	t_map	*map;
 
 	map = data->map;
-	ft_printf("\033[0;36m%s\033[0m | \033[0;35m%d\n\033[0m", move, data->moves_count++);
+	ft_printf("\033[0;36m%s\033[0m | \033[0;35m%d\n\033[0m", \
+	move, data->moves_count++);
 	while (map)
 	{
 		if (map->x == row && map->y == col && map->content != WALL)
@@ -32,6 +33,7 @@ int	check_movement(t_data *data, int row, int col, char *move)
 					exit_game("GG WP");
 			return (1);
 		}
+		check_enemy_movement(data);
 		map = map->next;
 	}
 	return (0);
@@ -78,5 +80,5 @@ int	hook_key(int keycode, t_data *data)
 void	hook_events(t_data *data)
 {
 	mlx_key_hook(data->mlx_win, hook_key, data);
-	mlx_hook(data->mlx_win, 17, (1L << 17), exit_game, NULL);
+	mlx_hook(data->mlx_win, 17, (1L << 17), exit_game, "Exit game");
 }

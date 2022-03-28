@@ -20,6 +20,7 @@ SRCS		= src/main.c \
 			src/map_parsing.c \
 			src/check_errors.c \
 			src/put_images.c \
+			src/attacker_info.c \
 			src/pixel_functions.c \
 			src/push_data.c \
 

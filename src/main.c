@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:51:51 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/25 14:00:09 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/28 11:58:21 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	
-	data.argc = argc;
-	data.argv = argv[1];
+
 	initialize_game(&data, argc);
 	parse_map(&data, argv[1]);
 	check_map(&data);

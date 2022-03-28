@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:53:29 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/25 16:00:02 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/28 13:11:33 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,12 @@ typedef struct s_attacker {
 	t_img	img;
 }	t_attacker;
 
+typedef struct s_wall {
+	t_img	img;
+	t_img	img_02;
+	t_img	img_03;
+}	t_wall;
+
 typedef struct s_data {
 	void			*mlx;
 	void			*mlx_win;
@@ -83,16 +89,14 @@ typedef struct s_data {
 	int				exit_count;
 	int				moves_count;
 	t_img			exit;
-	t_img			wall;
 	t_img			background;
+	t_wall			wall;
 	t_player		player;
 	t_attacker		attacker;
 	t_map			*map;
 	t_collectable	collectable;
 	int				row;
 	int				collumn;
-	int				argc;
-	char			*argv;
 }	t_data;
 
 int		main(int argc, char *argv[]);
@@ -125,6 +129,7 @@ void	initialize_exit_addres(t_data *data);
 void	initialize_attacker_addres(t_data *data);
 void	initialize_player_addres(t_data *data);
 void	initialize_collectable_addres(t_data *data);
+void	initialize_wall_addres(t_data *data);
 
 
 /* load data/images */
@@ -146,6 +151,12 @@ void	put_player_on_screen(t_data *data, int col, int row);
 void	put_attacker_on_screen(t_data *data, int col, int row);
 void	put_exit_on_screen(t_data *data, int col, int row);
 void	put_collectable_on_screen(t_data *data, int col, int row);
+
+/* attacker info */
+void	check_enemy_movement(t_data *data);
+void	load_attacker(t_data *data);
+void	initialize_attacker_addres(t_data *data);
+void	put_attacker_on_screen(t_data *data, int col, int row);
 
 /* push data to screen */
 void	push_data(t_data *data);
