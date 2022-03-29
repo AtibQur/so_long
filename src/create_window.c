@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:06:34 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/28 15:44:38 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/29 10:30:42 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,30 @@ void	initialize_collectable_addres(t_data *data)
 	data->collectable.img.addr = mlx_get_data_addr(data->collectable.img.img, \
 	&data->collectable.img.bits_per_pixel, &data->collectable.img.line_length, \
 	&data->collectable.img.endian);
-	data->collectable.img_02.addr = mlx_get_data_addr(data->collectable.img_02.img, \
-	&data->collectable.img_02.bits_per_pixel, &data->collectable.img_02.line_length, \
-	&data->collectable.img_02.endian);
-	data->collectable.img_03.addr = mlx_get_data_addr(data->collectable.img_03.img, \
-	&data->collectable.img_03.bits_per_pixel, &data->collectable.img_03.line_length, \
-	&data->collectable.img_03.endian);
+	data->collectable.img_02.addr = mlx_get_data_addr(\
+	data->collectable.img_02.img, &data->collectable.img_02.bits_per_pixel, \
+	&data->collectable.img_02.line_length, &data->collectable.img_02.endian);
+	data->collectable.img_03.addr = mlx_get_data_addr(\
+	data->collectable.img_03.img, &data->collectable.img_03.bits_per_pixel, \
+	&data->collectable.img_03.line_length, &data->collectable.img_03.endian);
 	data->collectable.current_img = data->collectable.img;
 }
 
 void	initialize_exit_addres(t_data *data)
 {
-	data->exit.addr = mlx_get_data_addr(data->exit.img, \
-	&data->exit.bits_per_pixel, &data->exit.line_length, &data->exit.endian);
+	data->exit.img.addr = mlx_get_data_addr(data->exit.img.img, \
+	&data->exit.img.bits_per_pixel, &data->exit.img.line_length, \
+	&data->exit.img.endian);
+	data->exit.img_02.addr = mlx_get_data_addr(data->exit.img_02.img, \
+	&data->exit.img_02.bits_per_pixel, &data->exit.img_02.line_length, \
+	&data->exit.img_02.endian);
+	data->exit.img_03.addr = mlx_get_data_addr(data->exit.img_03.img, \
+	&data->exit.img_03.bits_per_pixel, &data->exit.img_03.line_length, \
+	&data->exit.img_03.endian);
+	data->exit.img_04.addr = mlx_get_data_addr(data->exit.img_04.img, \
+	&data->exit.img_04.bits_per_pixel, &data->exit.img_04.line_length, \
+	&data->exit.img_04.endian);
+	data->exit.current_img = data->exit.img;
 }
 
 void	initialize_wall_addres(t_data *data)

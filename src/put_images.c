@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 14:06:09 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/28 15:36:45 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/29 09:46:21 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	put_exit_on_screen(t_data *data, int col, int row)
 		x = 0;
 		while (x < TILESIZE)
 		{
-			color = get_pixel_from_xpm(data->exit, x, y);
+			color = get_pixel_from_xpm(data->exit.current_img, x, y);
 			if (color != 0xFF000000)
 				pixel_put(&data->img, x + (col * TILESIZE), \
 				y + (row * TILESIZE), color);

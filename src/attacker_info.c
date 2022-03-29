@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 10:40:19 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/28 10:58:47 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/29 09:36:15 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	attacker_animations(t_data *data)
 	if (i == 0)
 		data->attacker.current_img = data->attacker.img;
 	if (i == 20)
-		data->attacker.current_img = data->player.current_img;
+		data->attacker.current_img = data->attacker.img_02;
 	if (i == 40)
 		data->attacker.current_img = data->attacker.img_03;
 	if (i == 60)

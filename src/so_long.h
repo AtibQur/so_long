@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:53:29 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/28 15:46:42 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/29 09:58:01 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,21 @@ typedef struct s_wall {
 	t_img	img_03;
 }	t_wall;
 
+typedef struct s_exit {
+	t_img	current_img;
+	t_img	img;
+	t_img	img_02;
+	t_img	img_03;
+	t_img	img_04;
+}	t_exit;
+
 typedef struct s_data {
 	void			*mlx;
 	void			*mlx_win;
 	t_img			img;
 	int				exit_count;
 	int				moves_count;
-	t_img			exit;
+	t_exit			exit;
 	t_img			background;
 	t_wall			wall;
 	t_player		player;
@@ -170,10 +178,10 @@ void	put_attacker_on_screen(t_data *data, int col, int row);
 /* animations */
 int		animations(t_data *data);
 int		wall_animations(t_data *data);
+int		exit_animations(t_data *data);
 int		attacker_animations(t_data *data);
 int		collectable_animations(t_data *data);
 int		player_animations(t_data *data);
-
 
 /* push data to screen */
 void	push_data(t_data *data);
