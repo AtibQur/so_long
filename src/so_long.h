@@ -83,6 +83,18 @@ typedef struct s_attacker {
 	t_img	img_02;
 	t_img	img_03;
 	t_img	img_04;
+	t_img	r_img;
+	t_img	r_img_02;
+	t_img	r_img_03;
+	t_img	r_img_04;
+	t_img	l_img;
+	t_img	l_img_02;
+	t_img	l_img_03;
+	t_img	l_img_04;
+	t_img	u_img;
+	t_img	u_img_02;
+	t_img	u_img_03;
+	t_img	u_img_04;
 }	t_attacker;
 
 typedef struct s_wall {
