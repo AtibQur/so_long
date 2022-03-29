@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 10:40:19 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/29 09:36:15 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/29 14:46:28 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	check_enemy_movement(t_data *data)
 {
+	
+
+	
 	if (data->attacker.x == data->player.x && \
 		data->attacker.y == data->player.y)
 		exit_game("Attacker caught the player! Try again");

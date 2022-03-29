@@ -90,3 +90,14 @@ else
 	echo "Checking for missing .ber extension: $RED [KO] $RESET"
 fi
 
+# Checking for dead character
+# MISSING_BER="./maps/map"
+# MISSING_BER_ERROR=$(./so_long $MISSING_BER | grep "Wrong extension, use a file with .ber" | wc -l)
+
+# if [ ${MISSING_BER_ERROR} -ge 1 ]
+# then
+# 	echo "Checking for missing .ber extension: $GREEN [OK] $RESET"
+# else
+# 	echo "Checking for missing .ber extension: $RED [KO] $RESET"
+# fi
+
