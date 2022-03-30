@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 11:53:47 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/28 13:23:38 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/30 13:30:34 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	check_movement(t_data *data, int row, int col, char *move)
 					exit_game("GG WP");
 			return (1);
 		}
-		check_enemy_movement(data);
+		check_dead_player(data);
 		map = map->next;
 	}
 	return (0);
@@ -73,6 +73,8 @@ int	hook_key(int keycode, t_data *data)
 	if (keycode == LEFT)
 		if (check_movement(data, data->player.x - 1, data->player.y, key(LEFT)))
 			data->player.x -= 1;
+	check_enemy_movement(data);
+	check_enemy_movement2(data);
 	push_data(data);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:53:29 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/29 09:58:01 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/30 13:30:07 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,8 +183,16 @@ void	put_collectable_on_screen(t_data *data, int col, int row);
 
 /* attacker info */
 void	check_enemy_movement(t_data *data);
+void	check_enemy_movement2(t_data *data);
+void	check_dead_player(t_data *data);
 void	load_attacker(t_data *data);
+void	u_load_attacker(t_data *data);
+void	r_load_attacker(t_data *data);
+void	l_load_attacker(t_data *data);
 void	initialize_attacker_addres(t_data *data);
+void	u_initialize_attacker_addres(t_data *data);
+void	r_initialize_attacker_addres(t_data *data);
+void	l_initialize_attacker_addres(t_data *data);
 void	put_attacker_on_screen(t_data *data, int col, int row);
 
 /* animations */

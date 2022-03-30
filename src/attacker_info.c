@@ -6,21 +6,70 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 10:40:19 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/29 14:46:28 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/30 13:34:27 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+void	check_dead_player(t_data *data)
+{
+	if (data->attacker.x == data->player.x && \
+	data->attacker.y == data->player.y)
+		exit_game("Player got caught! Try again");
+}
+
 void	check_enemy_movement(t_data *data)
 {
-	
+	static int	i;
 
-	
-	if (data->attacker.x == data->player.x && \
-		data->attacker.y == data->player.y)
-		exit_game("Attacker caught the player! Try again");
+	// if player is left_top, moves left top
+	if (data->attacker.y > data->player.y)
+		if (data->attacker.x > data->player.x)
+			if ((i == 1) || (i == 5) || (i == 3))
+			{
+				data->attacker.y--;
+				data->attacker.x--;
+			}
+	// //if player is right_top, move right_top
+	if (data->attacker.y > data->player.y) 
+		if (data->attacker.x < data->player.x)
+			if ((i == 2) || (i == 4) || (i == 6))
+			{
+				data->attacker.y--;
+				data->attacker.x++;
+			}
+	i++;
+	if (i == 6)
+		i = 0;
 }
+
+void	check_enemy_movement2(t_data *data)
+{
+	static int	i;
+
+	// if player is right_under, move right_under
+	if (data->attacker.y < data->player.y)
+		if (data->attacker.x > data->player.x)
+			if ((i == 1) || (i == 3) || (i == 5))
+			{
+				data->attacker.x--;
+				data->attacker.y++;
+			}
+	// if player is left_under, move left_under	
+	if (data->attacker.y < data->player.y)
+		if (data->attacker.x < data->player.x)
+			if ((i == 2) || (i == 4) || (i == 6))
+			{
+				data->attacker.x++;
+				data->attacker.y++;
+			}
+	i++;
+	if (i == 6)
+		i = 0;
+}
+
+
 
 void	load_attacker(t_data *data)
 {
@@ -28,13 +77,11 @@ void	load_attacker(t_data *data)
 	int	img_height;
 
 	data->attacker.img.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_01.xpm", &img_width, &img_height);
+	"./src/img/attacker_01.xpm", &img_width, &img_height);
 	data->attacker.img_02.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_02.xpm", &img_width, &img_height);
+	"./src/img/attacker_02.xpm", &img_width, &img_height);
 	data->attacker.img_03.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_03.xpm", &img_width, &img_height);
-	data->attacker.img_04.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_04.xpm", &img_width, &img_height);
+	"./src/img/attacker_03.xpm", &img_width, &img_height);
 }
 
 void	u_load_attacker(t_data *data)
@@ -43,13 +90,11 @@ void	u_load_attacker(t_data *data)
 	int	img_height;
 
 	data->attacker.u_img.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_01.xpm", &img_width, &img_height);
+	"./src/img/upsidedown_attacker_01.xpm", &img_width, &img_height);
 	data->attacker.u_img_02.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_02.xpm", &img_width, &img_height);
+	"./src/img/upsidedown_attacker_02.xpm", &img_width, &img_height);
 	data->attacker.u_img_03.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_03.xpm", &img_width, &img_height);
-	data->attacker.u_img_04.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_04.xpm", &img_width, &img_height);
+	"./src/img/upsidedown_attacker_03.xpm", &img_width, &img_height);
 }
 
 void	r_load_attacker(t_data *data)
@@ -58,13 +103,11 @@ void	r_load_attacker(t_data *data)
 	int	img_height;
 
 	data->attacker.r_img.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_01.xpm", &img_width, &img_height);
+	"./src/img/rightside_attacker_01.xpm", &img_width, &img_height);
 	data->attacker.r_img_02.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_02.xpm", &img_width, &img_height);
+	"./src/img/rightside_attacker_02.xpm", &img_width, &img_height);
 	data->attacker.r_img_03.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_03.xpm", &img_width, &img_height);
-	data->attacker.r_img_04.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_04.xpm", &img_width, &img_height);
+	"./src/img/rightside_attacker_03.xpm", &img_width, &img_height);
 }
 
 void	l_load_attacker(t_data *data)
@@ -73,13 +116,11 @@ void	l_load_attacker(t_data *data)
 	int	img_height;
 
 	data->attacker.l_img.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_01.xpm", &img_width, &img_height);
+	"./src/img/leftside_attacker_01.xpm", &img_width, &img_height);
 	data->attacker.l_img_02.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_02.xpm", &img_width, &img_height);
+	"./src/img/leftside_attacker_02.xpm", &img_width, &img_height);
 	data->attacker.l_img_03.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_03.xpm", &img_width, &img_height);
-	data->attacker.l_img_04.img = mlx_xpm_file_to_image(data->mlx, \
-	"./src/img/enemy_04.xpm", &img_width, &img_height);
+	"./src/img/leftside_attacker_03.xpm", &img_width, &img_height);
 }
 
 void	initialize_attacker_addres(t_data *data)
@@ -93,9 +134,6 @@ void	initialize_attacker_addres(t_data *data)
 	data->attacker.img_03.addr = mlx_get_data_addr(data->attacker.img_03.img, \
 	&data->attacker.img_03.bits_per_pixel, &data->attacker.img_03.line_length, \
 	&data->attacker.img_03.endian);
-	data->attacker.img_04.addr = mlx_get_data_addr(data->attacker.img_04.img, \
-	&data->attacker.img_04.bits_per_pixel, &data->attacker.img_04.line_length, \
-	&data->attacker.img_04.endian);
 	data->attacker.current_img = data->attacker.img;
 }
 void	u_initialize_attacker_addres(t_data *data)
@@ -109,9 +147,6 @@ void	u_initialize_attacker_addres(t_data *data)
 	data->attacker.u_img_03.addr = mlx_get_data_addr(data->attacker.u_img_03.img, \
 	&data->attacker.u_img_03.bits_per_pixel, &data->attacker.u_img_03.line_length, \
 	&data->attacker.u_img_03.endian);
-	data->attacker.u_img_04.addr = mlx_get_data_addr(data->attacker.u_img_04.img, \
-	&data->attacker.u_img_04.bits_per_pixel, &data->attacker.u_img_04.line_length, \
-	&data->attacker.u_img_04.endian);
 }
 
 void	r_initialize_attacker_addres(t_data *data)
@@ -125,9 +160,6 @@ void	r_initialize_attacker_addres(t_data *data)
 	data->attacker.r_img_03.addr = mlx_get_data_addr(data->attacker.r_img_03.img, \
 	&data->attacker.r_img_03.bits_per_pixel, &data->attacker.r_img_03.line_length, \
 	&data->attacker.r_img_03.endian);
-	data->attacker.r_img_04.addr = mlx_get_data_addr(data->attacker.r_img_04.img, \
-	&data->attacker.r_img_04.bits_per_pixel, &data->attacker.r_img_04.line_length, \
-	&data->attacker.r_img_04.endian);
 }
 
 void	l_initialize_attacker_addres(t_data *data)
@@ -141,9 +173,6 @@ void	l_initialize_attacker_addres(t_data *data)
 	data->attacker.l_img_03.addr = mlx_get_data_addr(data->attacker.l_img_03.img, \
 	&data->attacker.l_img_03.bits_per_pixel, &data->attacker.l_img_03.line_length, \
 	&data->attacker.l_img_03.endian);
-	data->attacker.l_img_04.addr = mlx_get_data_addr(data->attacker.l_img_04.img, \
-	&data->attacker.l_img_04.bits_per_pixel, &data->attacker.l_img_04.line_length, \
-	&data->attacker.l_img_04.endian);
 }
 
 void	put_attacker_on_screen(t_data *data, int col, int row)

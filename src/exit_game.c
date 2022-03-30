@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 10:45:33 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/28 13:23:15 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/30 10:14:45 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	exit_game(char *error_message)
 {
-
 	if (ft_strnstr(error_message, "GG WP", ft_strlen(error_message)))
 	{
 		ft_printf("\033[0;32m");

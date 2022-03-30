@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 14:41:32 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/25 13:04:49 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/03/30 11:26:44 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	push_data(t_data *data)
 			put_exit_on_screen(data, map->x, map->y);
 		if (map->content == COLLECTABLE)
 			put_collectable_on_screen(data, map->x, map->y);
+		put_player_on_screen(data, data->player.x, data->player.y);
 		if (data->attacker.attacker_count >= 1)
 			put_attacker_on_screen(data, data->attacker.x, data->attacker.y);
-		put_player_on_screen(data, data->player.x, data->player.y);
 		map = map->next;
 	}
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);
