@@ -78,6 +78,9 @@ void	load_data(t_data *data)
 	load_player(data);
 	load_collectables(data);
 	load_attacker(data);
+	l_load_attacker(data);
+	u_load_attacker(data);
+	r_load_attacker(data);
 	load_exit(data);
 	load_walls(data);
 }
