@@ -75,6 +75,8 @@ int	hook_key(int keycode, t_data *data)
 			data->player.x -= 1;
 	check_enemy_movement(data);
 	check_enemy_movement2(data);
+	check_enemy_movement3(data);
+	check_enemy_movement4(data);
 	push_data(data);
 	return (0);
 }

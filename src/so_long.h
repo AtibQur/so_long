@@ -184,6 +184,8 @@ void	put_collectable_on_screen(t_data *data, int col, int row);
 /* attacker info */
 void	check_enemy_movement(t_data *data);
 void	check_enemy_movement2(t_data *data);
+void	check_enemy_movement3(t_data *data);
+void	check_enemy_movement4(t_data *data);
 void	check_dead_player(t_data *data);
 void	load_attacker(t_data *data);
 void	u_load_attacker(t_data *data);

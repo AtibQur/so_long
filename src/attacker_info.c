@@ -12,65 +12,6 @@
 
 #include "so_long.h"
 
-void	check_dead_player(t_data *data)
-{
-	if (data->attacker.x == data->player.x && \
-	data->attacker.y == data->player.y)
-		exit_game("Player got caught! Try again");
-}
-
-void	check_enemy_movement(t_data *data)
-{
-	static int	i;
-
-	// if player is left_top, moves left top
-	if (data->attacker.y > data->player.y)
-		if (data->attacker.x > data->player.x)
-			if ((i == 1) || (i == 5) || (i == 3))
-			{
-				data->attacker.y--;
-				data->attacker.x--;
-			}
-	// //if player is right_top, move right_top
-	if (data->attacker.y > data->player.y) 
-		if (data->attacker.x < data->player.x)
-			if ((i == 2) || (i == 4) || (i == 6))
-			{
-				data->attacker.y--;
-				data->attacker.x++;
-			}
-	i++;
-	if (i == 6)
-		i = 0;
-}
-
-void	check_enemy_movement2(t_data *data)
-{
-	static int	i;
-
-	// if player is right_under, move right_under
-	if (data->attacker.y < data->player.y)
-		if (data->attacker.x > data->player.x)
-			if ((i == 1) || (i == 3) || (i == 5))
-			{
-				data->attacker.x--;
-				data->attacker.y++;
-			}
-	// if player is left_under, move left_under	
-	if (data->attacker.y < data->player.y)
-		if (data->attacker.x < data->player.x)
-			if ((i == 2) || (i == 4) || (i == 6))
-			{
-				data->attacker.x++;
-				data->attacker.y++;
-			}
-	i++;
-	if (i == 6)
-		i = 0;
-}
-
-
-
 void	load_attacker(t_data *data)
 {
 	int	img_width;
