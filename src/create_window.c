@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:06:34 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/29 10:30:42 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/04/01 10:05:11 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,9 @@ void	create_window(t_data *data)
 	initialize_exit_addres(data);
 	initialize_collectable_addres(data);
 	initialize_attacker_addres(data);
+	r_initialize_attacker_addres(data);
+	u_initialize_attacker_addres(data);
+	l_initialize_attacker_addres(data);
 	initialize_player_addres(data);
 	initialize_wall_addres(data);
 }
