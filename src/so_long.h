@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:53:29 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/04/01 13:06:00 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/04/01 14:52:42 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ void			check_map(t_data *data);
 void			check_map_content(t_map *map, int column, int row);
 int				check_content_existance(t_data *data);
 void			check_attacker_existance(t_data *data, int x, int y);
+void			check_wall_jump(t_data *data);
 
 /* Create window and intialize adresses */
 void			create_window(t_data *data);
