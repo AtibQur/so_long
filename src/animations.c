@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:45:18 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/04/01 10:14:47 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/04/01 11:12:33 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int	wall_animations(t_data *data)
 
 	if (i == 0)
 		data->wall.current_img = data->wall.img;
-	if (i == 15)
+	if (i == 10)
 		data->wall.current_img = data->wall.img_02;
-	if (i == 30)
+	if (i == 15)
 		data->wall.current_img = data->wall.img_03;
-	if (i == 45)
+	if (i == 20)
 		data->wall.current_img = data->wall.img_02;
 	i++;
-	if (i == 60)
+	if (i == 25)
 		i = 0;
 	push_data(data);
 	return (0);
@@ -37,12 +37,12 @@ int	collectable_animations(t_data *data)
 
 	if (i == 0)
 		data->collectable.current_img = data->collectable.img;
-	if (i == 10)
+	if (i == 5)
 		data->collectable.current_img = data->collectable.img_02;
-	if (i == 20)
+	if (i == 10)
 		data->collectable.current_img = data->collectable.img_03;
 	i++;
-	if (i == 30)
+	if (i == 15)
 		i = 0;
 	push_data(data);
 	return (0);

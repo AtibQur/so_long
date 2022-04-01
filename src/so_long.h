@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:53:29 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/30 13:30:07 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/04/01 11:48:17 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,6 +202,9 @@ int		animations(t_data *data);
 int		wall_animations(t_data *data);
 int		exit_animations(t_data *data);
 int		attacker_animations(t_data *data);
+int		l_attacker_animations(t_data *data);
+int		r_attacker_animations(t_data *data);
+int		u_attacker_animations(t_data *data);
 int		collectable_animations(t_data *data);
 int		player_animations(t_data *data);
 
