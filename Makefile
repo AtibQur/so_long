@@ -62,4 +62,7 @@ re:			fclean all
 .PHONY:		all clean fclean re
 
 test:
-	./test_script/tests.sh
+	./test_script/test.sh
+
+test_all:
+	./test_script/test_all.sh

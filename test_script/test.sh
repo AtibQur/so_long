@@ -36,7 +36,7 @@ else
 fi
 
 # Checking for invalid walls
-INVALID_WALL_MAP="./maps/maps_invalid_map.ber"
+INVALID_WALL_MAP="./maps/maps_test/maps_invalid_map.ber"
 INVALID_WALL_MAP_ERROR=$(./so_long $INVALID_WALL_MAP | grep "Invalid walls, map is not fully covered with walls!" | wc -l)
 
 if [ ${INVALID_WALL_MAP_ERROR} -ge 1 ]
@@ -47,7 +47,7 @@ else
 fi
 
 # Checking for missing player (P)
-MISSING_P="./maps/maps_missing_p.ber"
+MISSING_P="./maps/maps_test/maps_missing_p.ber"
 MISSING_P_ERROR=$(./so_long $MISSING_P | grep "There are not enough players, exits or collectables!" | wc -l)
 
 if [ ${MISSING_P_ERROR} -ge 1 ]
@@ -58,7 +58,7 @@ else
 fi
 
 # Checking for missing exit (E)
-MISSING_E="./maps/maps_missing_e.ber"
+MISSING_E="./maps/maps_test/maps_missing_e.ber"
 MISSING_E_ERROR=$(./so_long $MISSING_E | grep "There are not enough players, exits or collectables!" | wc -l)
 
 if [ ${MISSING_E_ERROR} -ge 1 ]
@@ -69,7 +69,7 @@ else
 fi
 
 # Checking for missing collectables (COLLECTABLES)
-MISSING_C="./maps/maps_missing_c.ber"
+MISSING_C="./maps/maps_test/maps_missing_c.ber"
 MISSING_C_ERROR=$(./so_long $MISSING_C | grep "There are not enough players, exits or collectables!" | wc -l)
 
 if [ ${MISSING_C_ERROR} -ge 1 ]
@@ -80,7 +80,7 @@ else
 fi
 
 # Checking for missing .ber extension
-MISSING_BER="./maps/maps_without_ber.be"
+MISSING_BER="./maps/maps_test/maps_without_ber.be"
 MISSING_BER_ERROR=$(./so_long $MISSING_BER | grep "Wrong extension, use a file with .ber" | wc -l)
 
 if [ ${MISSING_BER_ERROR} -ge 1 ]
@@ -90,26 +90,13 @@ else
 	echo "Checking for missing .ber extension: $RED [KO] $RESET"
 fi
 
-echo "For the following tests, press D multiple times:"
+# Checking for empty map
+EMPTY_MAP="./maps/maps_test/maps_empty_map.ber"
+EMPTY_MAP_ERROR=$(./so_long $EMPTY_MAP | grep "No new line, choose a correct map!" | wc -l)
 
-# Checking for dead character
-DEAD_CHAR="./maps/maps_kill_player.ber"
-DEAD_CHAR_ERROR=$(./so_long $DEAD_CHAR | grep "Player got caught! Try again" | wc -l)
-
-if [ ${DEAD_CHAR_ERROR} -ge 1 ]
+if [ ${EMPTY_MAP_ERROR} -ge 1 ]
 then
-	echo "Checking for player caught: $GREEN [OK] $RESET"
+	echo "Checking for empty map: $GREEN [OK] $RESET"
 else
-	echo "Checking for player caught: $RED [KO] $RESET"
-fi
-
-# Checking for working map
-WORKING_MAP="./maps/maps_ggwp.ber"
-WORKING_MAP_ERROR=$(./so_long $WORKING_MAP | grep "GG WP" | wc -l)
-
-if [ ${WORKING_MAP_ERROR} -ge 1 ]
-then
-	echo "Checking for working map: $GREEN [OK] $RESET"
-else
-	echo "Checking for working map: $RED [KO] $RESET"
+	echo "Checking for empty map: $RED [KO] $RESET"
 fi
