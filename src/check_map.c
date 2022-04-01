@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 09:54:39 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/25 15:58:52 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/04/01 17:07:11 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,14 @@ void	check_map(t_data *data)
 	}
 	if (check_content_existance(data) == 0)
 		exit_game("There are not enough players, exits or collectables!");
+}
+
+void	check_dead_player(t_data *data)
+{
+	if (data->attacker.x == data->player.x && \
+	data->attacker.y == data->player.y)
+	{
+		usleep(10000);
+		exit_game("Player got caught! Try again");
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 11:53:47 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/04/01 15:22:57 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/04/01 17:10:26 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,7 @@ int	hook_key(int keycode, t_data *data)
 	if (keycode == LEFT)
 		if (check_movement(data, data->player.x - 1, data->player.y, key(LEFT)))
 			data->player.x -= 1;
-	check_enemy_movement(data);
-	check_enemy_movement2(data);
-	check_enemy_movement3(data);
-	check_enemy_movement4(data);
-	check_wall_jump(data);
+	check_enemy_movements(data);
 	push_data(data);
 	return (0);
 }
@@ -86,18 +82,4 @@ void	hook_events(t_data *data)
 {
 	mlx_key_hook(data->mlx_win, hook_key, data);
 	mlx_hook(data->mlx_win, 17, (1L << 17), exit_game, "Exit game");
-}
-
-void	check_wall_jump(t_data *data)
-{
-	t_map	*map;
-
-	map = data->map;
-
-	while (map)
-	{
-		if (map->content == WALL)
-			ft_printf("hoi");
-		map = map->next;
-	}
 }

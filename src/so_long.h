@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:53:29 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/04/01 14:52:42 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/04/01 17:10:53 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,6 +185,7 @@ void			put_collectable_on_screen(t_data *data, int col, int row);
 /* attacker info */
 void			put_attacker_on_screen(t_data *data, int col, int row);
 void			check_dead_player(t_data *data);
+void			check_enemy_movements(t_data *data);
 void			check_enemy_movement(t_data *data);
 void			check_enemy_movement2(t_data *data);
 void			check_enemy_movement3(t_data *data);

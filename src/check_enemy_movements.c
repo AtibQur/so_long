@@ -6,20 +6,18 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 11:16:00 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/04/01 15:15:10 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/04/01 17:10:14 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	check_dead_player(t_data *data)
+void	check_enemy_movements(t_data *data)
 {
-	if (data->attacker.x == data->player.x && \
-	data->attacker.y == data->player.y)
-	{
-		usleep(10000);
-		exit_game("Player got caught! Try again");
-	}
+	check_enemy_movement(data);
+	check_enemy_movement2(data);
+	check_enemy_movement3(data);
+	check_enemy_movement4(data);
 }
 
 	// 1. if player is left_top, moves left top

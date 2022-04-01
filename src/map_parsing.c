@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 15:40:18 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/25 13:03:31 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/04/01 17:16:52 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	parse_map(t_data *data, char *map)
 		if (check_rectangle(line, data->collumn) == 0)
 			exit_game("Invalid Map, choose a correct map!");
 		parse_position(&data->map, line, data->row);
+		free(line);
 		line = get_next_line(fd);
 		data->row++;
 	}

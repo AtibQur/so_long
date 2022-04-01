@@ -90,14 +90,26 @@ else
 	echo "Checking for missing .ber extension: $RED [KO] $RESET"
 fi
 
+echo "For the following tests, press D multiple times:"
+
 # Checking for dead character
-# MISSING_BER="./maps/map"
-# MISSING_BER_ERROR=$(./so_long $MISSING_BER | grep "Wrong extension, use a file with .ber" | wc -l)
+DEAD_CHAR="./maps/maps_kill_player.ber"
+DEAD_CHAR_ERROR=$(./so_long $DEAD_CHAR | grep "Player got caught! Try again" | wc -l)
 
-# if [ ${MISSING_BER_ERROR} -ge 1 ]
-# then
-# 	echo "Checking for missing .ber extension: $GREEN [OK] $RESET"
-# else
-# 	echo "Checking for missing .ber extension: $RED [KO] $RESET"
-# fi
+if [ ${DEAD_CHAR_ERROR} -ge 1 ]
+then
+	echo "Checking for player caught: $GREEN [OK] $RESET"
+else
+	echo "Checking for player caught: $RED [KO] $RESET"
+fi
 
+# Checking for working map
+WORKING_MAP="./maps/maps_ggwp.ber"
+WORKING_MAP_ERROR=$(./so_long $WORKING_MAP | grep "GG WP" | wc -l)
+
+if [ ${WORKING_MAP_ERROR} -ge 1 ]
+then
+	echo "Checking for working map: $GREEN [OK] $RESET"
+else
+	echo "Checking for working map: $RED [KO] $RESET"
+fi
