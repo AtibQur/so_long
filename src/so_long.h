@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 10:53:29 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/04/01 11:48:17 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/04/01 13:06:00 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,97 +118,97 @@ typedef struct s_data {
 	t_img			img;
 	int				exit_count;
 	int				moves_count;
-	t_exit			exit;
+	t_map			*map;
 	t_img			background;
+	t_exit			exit;
 	t_wall			wall;
 	t_player		player;
 	t_attacker		attacker;
-	t_map			*map;
 	t_collectable	collectable;
 	int				row;
 	int				collumn;
 }	t_data;
 
-int		main(int argc, char *argv[]);
+int				main(int argc, char **argv);
 
 /* Initialize the game */
-void	initialize_game(t_data *data, int argc);
+void			initialize_game(t_data *data, int argc);
 
 /* Hook events */
-int		hook_key(int keycode, t_data *data);
-void	hook_events(t_data *data);
-int		exit_game(char *error_message);
+int				hook_key(int keycode, t_data *data);
+void			hook_events(t_data *data);
+int				exit_game(char *error_message);
 
 /* Parse map */
-void	parse_map(t_data *data, char *map);
-void	parse_position(t_map **map, char *line, int y);
-void	add_new_node(t_map **map, t_map *new_node);
-int		check_rectangle(char *line, int collumn);
-void	check_ber_extension(char *map);
-t_map	*insert_tail(char content, int x, int y);
+void			parse_map(t_data *data, char *map);
+void			parse_position(t_map **map, char *line, int y);
+void			add_new_node(t_map **map, t_map *new_node);
+int				check_rectangle(char *line, int collumn);
+void			check_ber_extension(char *map);
+t_map			*insert_tail(char content, int x, int y);
 
 /* Check map*/
-void	check_map(t_data *data);
-void	check_map_content(t_map *map, int column, int row);
-int		check_content_existance(t_data *data);
-void	check_attacker_existance(t_data *data, int x, int y);
+void			check_map(t_data *data);
+void			check_map_content(t_map *map, int column, int row);
+int				check_content_existance(t_data *data);
+void			check_attacker_existance(t_data *data, int x, int y);
 
 /* Create window and intialize adresses */
-void	create_window(t_data *data);
-void	initialize_exit_addres(t_data *data);
-void	initialize_attacker_addres(t_data *data);
-void	initialize_player_addres(t_data *data);
-void	initialize_collectable_addres(t_data *data);
-void	initialize_wall_addres(t_data *data);
+void			create_window(t_data *data);
+void			initialize_exit_addres(t_data *data);
+void			initialize_attacker_addres(t_data *data);
+void			initialize_player_addres(t_data *data);
+void			initialize_collectable_addres(t_data *data);
+void			initialize_wall_addres(t_data *data);
 
 /* load data/images */
-void	load_data(t_data *data);
-void	load_player(t_data *data);
-void	load_collectables(t_data *data);
-void	load_walls(t_data *data);
-void	load_exit(t_data *data);
-void	load_attacker(t_data *data);
+void			load_data(t_data *data);
+void			load_player(t_data *data);
+void			load_collectables(t_data *data);
+void			load_walls(t_data *data);
+void			load_exit(t_data *data);
+void			load_attacker(t_data *data);
 
 /* pixel functions (get pixels and places on screen) */
-unsigned int	get_pixel_from_xpm(t_img xpm, int x, int y);
 void			pixel_put(t_img *img, int x, int y, int color);
+unsigned int	get_pixel_from_xpm(t_img xpm, int x, int y);
 
 /* put images */
-void	put_background_on_screen(t_data *data, int col, int row);
-void	put_walls_on_screen(t_data *data, int col, int row);
-void	put_player_on_screen(t_data *data, int col, int row);
-void	put_attacker_on_screen(t_data *data, int col, int row);
-void	put_exit_on_screen(t_data *data, int col, int row);
-void	put_collectable_on_screen(t_data *data, int col, int row);
+void			put_background_on_screen(t_data *data, int col, int row);
+void			put_walls_on_screen(t_data *data, int col, int row);
+void			put_player_on_screen(t_data *data, int col, int row);
+void			put_attacker_on_screen(t_data *data, int col, int row);
+void			put_exit_on_screen(t_data *data, int col, int row);
+void			put_collectable_on_screen(t_data *data, int col, int row);
 
 /* attacker info */
-void	check_enemy_movement(t_data *data);
-void	check_enemy_movement2(t_data *data);
-void	check_enemy_movement3(t_data *data);
-void	check_enemy_movement4(t_data *data);
-void	check_dead_player(t_data *data);
-void	load_attacker(t_data *data);
-void	u_load_attacker(t_data *data);
-void	r_load_attacker(t_data *data);
-void	l_load_attacker(t_data *data);
-void	initialize_attacker_addres(t_data *data);
-void	u_initialize_attacker_addres(t_data *data);
-void	r_initialize_attacker_addres(t_data *data);
-void	l_initialize_attacker_addres(t_data *data);
-void	put_attacker_on_screen(t_data *data, int col, int row);
+void			put_attacker_on_screen(t_data *data, int col, int row);
+void			check_dead_player(t_data *data);
+void			check_enemy_movement(t_data *data);
+void			check_enemy_movement2(t_data *data);
+void			check_enemy_movement3(t_data *data);
+void			check_enemy_movement4(t_data *data);
+void			load_attacker(t_data *data);
+void			u_load_attacker(t_data *data);
+void			r_load_attacker(t_data *data);
+void			l_load_attacker(t_data *data);
+void			initialize_attacker_addres(t_data *data);
+void			u_initialize_attacker_addres(t_data *data);
+void			r_initialize_attacker_addres(t_data *data);
+void			l_initialize_attacker_addres(t_data *data);
+int				attacker_animations(t_data *data);
+int				l_attacker_animations(t_data *data);
+int				r_attacker_animations(t_data *data);
+int				u_attacker_animations(t_data *data);
 
 /* animations */
-int		animations(t_data *data);
-int		wall_animations(t_data *data);
-int		exit_animations(t_data *data);
-int		attacker_animations(t_data *data);
-int		l_attacker_animations(t_data *data);
-int		r_attacker_animations(t_data *data);
-int		u_attacker_animations(t_data *data);
-int		collectable_animations(t_data *data);
-int		player_animations(t_data *data);
+int				animations(t_data *data);
+int				wall_animations(t_data *data);
+int				exit_animations(t_data *data);
+int				collectable_animations(t_data *data);
+int				player_animations(t_data *data);
 
 /* push data to screen */
-void	push_data(t_data *data);
+void			push_data(t_data *data);
 
 #endif

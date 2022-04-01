@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:52:03 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/03/16 10:54:34 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/04/01 12:58:52 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ char	*ft_gnl_strjoin(char *s1, char *s2)
 	}
 	if (!s1 || !s2)
 		return (NULL);
-	dest = (char *)malloc(sizeof(char) * ft_gnl_strlen(s1) + ft_gnl_strlen(s2) + 1);
+	dest = (char *)malloc(sizeof(char) * ft_gnl_strlen(s1) + \
+	ft_gnl_strlen(s2) + 1);
 	if (dest == NULL)
 		return (NULL);
 	i = -1;

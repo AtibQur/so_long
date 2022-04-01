@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 11:16:00 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/04/01 11:52:27 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/04/01 12:47:14 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,24 @@ void	check_enemy_movement(t_data *data)
 {
 	static int	i;
 
-	if (data->attacker.y > data->player.y)
+	if (data->attacker.y > data->player.y && data->attacker.x > data->player.x)
 	{
-		if (data->attacker.x > data->player.x)
+		if ((i == 1) || (i == 4) || (i == 7))
 		{
-			if ((i == 1) || (i == 4) || (i == 7))
-			{
-				l_attacker_animations(data);
-				data->attacker.y--;
-				data->attacker.x--;
-			}
+			l_attacker_animations(data);
+			data->attacker.y--;
+			data->attacker.x--;
 		}
 	}
-	if (data->attacker.y > data->player.y) 
-		if (data->attacker.x < data->player.x)
-			if ((i == 2) || (i == 5) || (i == 0))
-			{
-				r_attacker_animations(data);
-				data->attacker.y--;
-				data->attacker.x++;
-			}
+	if (data->attacker.y > data->player.y && data->attacker.x < data->player.x)
+	{
+		if ((i == 2) || (i == 5) || (i == 0))
+		{
+			r_attacker_animations(data);
+			data->attacker.y--;
+			data->attacker.x++;
+		}
+	}
 	i++;
 	if (i == 8)
 		i = 0;
@@ -59,22 +57,24 @@ void	check_enemy_movement2(t_data *data)
 {
 	static int	i;
 
-	if (data->attacker.y < data->player.y)
-		if (data->attacker.x > data->player.x)
-			if ((i == 1) || (i == 4) || (i == 7))
-			{
-				attacker_animations(data);
-				data->attacker.x--;
-				data->attacker.y++;
-			}
-	if (data->attacker.y < data->player.y)
-		if (data->attacker.x < data->player.x)
-			if ((i == 2) || (i == 5) || (i == 0))
-			{
-				attacker_animations(data);
-				data->attacker.x++;
-				data->attacker.y++;
-			}
+	if (data->attacker.y < data->player.y && data->attacker.x > data->player.x)
+	{
+		if ((i == 1) || (i == 4) || (i == 7))
+		{
+			attacker_animations(data);
+			data->attacker.x--;
+			data->attacker.y++;
+		}	
+	}
+	if (data->attacker.y < data->player.y && data->attacker.x < data->player.x)
+	{
+		if ((i == 2) || (i == 5) || (i == 0))
+		{
+			attacker_animations(data);
+			data->attacker.x++;
+			data->attacker.y++;
+		}
+	}
 	i++;
 	if (i == 8)
 		i = 0;
@@ -86,20 +86,22 @@ void	check_enemy_movement3(t_data *data)
 {
 	static int	i;
 
-	if (data->attacker.y == data->player.y)
-		if (data->attacker.x > data->player.x)
-			if ((i == 1) || (i == 4) || (i == 7))
-			{
-				l_attacker_animations(data);
-				data->attacker.x--;
-			}
-	if (data->attacker.y == data->player.y)
-		if (data->attacker.x < data->player.x)
-			if ((i == 2) || (i == 5) || (i == 0))
-			{
-				r_attacker_animations(data);
-				data->attacker.x++;
-			}
+	if (data->attacker.y == data->player.y && data->attacker.x > data->player.x)
+	{
+		if ((i == 1) || (i == 4) || (i == 7))
+		{
+			l_attacker_animations(data);
+			data->attacker.x--;
+		}	
+	}
+	if (data->attacker.y == data->player.y && data->attacker.x < data->player.x)
+	{
+		if ((i == 2) || (i == 5) || (i == 0))
+		{
+			r_attacker_animations(data);
+			data->attacker.x++;
+		}	
+	}
 	i++;
 	if (i == 8)
 		i = 0;
@@ -111,20 +113,22 @@ void	check_enemy_movement4(t_data *data)
 {
 	static int	i;
 
-	if (data->attacker.x == data->player.x)
-		if (data->attacker.y > data->player.y)
-			if ((i == 1) || (i == 4) || (i == 7))
-			{
-				u_attacker_animations(data);
-				data->attacker.y--;
-			}
-	if (data->attacker.x == data->player.x)
-		if (data->attacker.y < data->player.y)
-			if ((i == 2) || (i == 5) || (i == 0))
-			{
-				attacker_animations(data);
-				data->attacker.y++;
-			}
+	if (data->attacker.x == data->player.x && data->attacker.y > data->player.y)
+	{
+		if ((i == 1) || (i == 4) || (i == 7))
+		{
+			u_attacker_animations(data);
+			data->attacker.y--;
+		}
+	}
+	if (data->attacker.x == data->player.x && data->attacker.y < data->player.y)
+	{
+		if ((i == 2) || (i == 5) || (i == 0))
+		{
+			attacker_animations(data);
+			data->attacker.y++;
+		}
+	}
 	i++;
 	if (i == 8)
 		i = 0;

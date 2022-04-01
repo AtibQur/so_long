@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:45:18 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/04/01 11:12:33 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/04/01 12:58:17 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ int	animations(t_data *data)
 	wall_animations(data);
 	exit_animations(data);
 	player_animations(data);
-	// attacker_animations(data);
 	collectable_animations(data);
 	return (0);
 }
