@@ -1,4 +1,4 @@
-# <h1 align="center"><a href="https://github.com/AtibQur/push_swap/blob/main/so_long.pdf" target="_blank">So_long 🎮  🕹️</a></h1>
+# <h1 align="center"><a href="https://github.com/AtibQur/so_long/blob/main/so_long.pdf" target="_blank">So_long 🎮  🕹️</a></h1>
 <p><img align="right" src="./src/img/PNG_pictures/score.png" alt="Score" width="125" height="125"></p>
 <h2>Description So_long</h2>
 This project is all about creating a top down 2d game using the MLX library. The game reads a map which include a player(P), exit(E), collectables(C), walls(1), background(0) and an optional enemy(A). The goal is to create a game where collectables are collected before you can exit the game. In order to do this, your player character has to move over the collectable and collect the items.
