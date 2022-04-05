@@ -3,7 +3,7 @@
 <h2>Description So_long</h2>
 This project is all about creating a top down 2d game using the MLX library. The game reads a map which include a player(P), exit(E), collectables(C), walls(1), background(0) and an optional enemy(A). The goal is to create a game where collectables are collected before you can exit the game. In order to do this, your player character has to move over the collectable and collect the items.
 <br><br>
-<img src="./src/gif/so_long.gif" width="500" height="300" />
+<img src="./src/gif/so_long.gif" width="750" height="450" />
 <br><br>
 <h2>Rules</h2>
 <li>The W, A, S, and D keys must be used to move the main character.</li> 
